@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Study Guide — Golden Touch Website Deal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --gold:    #c9a84c;
+      --gold-lt: #e8c96d;
+      --gold-dk: #a07c30;
+      --bg:      #0d0d0d;
+      --bg-alt:  #141414;
+      --surface: #1a1a1a;
+      --border:  #2c2c2c;
+      --text:    #d8cfc0;
+      --muted:   #7a7a7a;
+      --white:   #ffffff;
+      --green:   #4caf7d;
+      --blue:    #5b9bd5;
+      --red:     #e05555;
+      --orange:  #e07f45;
+      --ff-head: 'Playfair Display', Georgia, serif;
+      --ff-body: 'Lato', Arial, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--ff-body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1,h2,h3,h4 { font-family: var(--ff-head); color: var(--white); line-height: 1.2; }
+    p { margin-bottom: .9rem; }
+    p:last-child { margin-bottom: 0; }
+    a { color: var(--gold); }
+    code {
+      background: rgba(201,168,76,.12);
+      border: 1px solid rgba(201,168,76,.25);
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: .88em;
+      color: var(--gold-lt);
+      font-family: monospace;
+    }
+    strong { color: var(--white); }
+    em     { color: var(--gold-lt); font-style: normal; }
+
+    /* Layout */
+    .wrap { display: flex; min-height: 100vh; }
+
+    /* Sidebar TOC */
+    .sidebar {
+      width: 260px;
+      min-width: 260px;
+      background: #090909;
+      border-right: 1px solid var(--border);
+      padding: 2rem 1.25rem;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+    }
+    .sidebar-title {
+      font-size: .65rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+      padding-bottom: .75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .toc { list-style: none; }
+    .toc > li { margin-bottom: .25rem; }
+    .toc a {
+      display: block;
+      font-size: .82rem;
+      color: var(--muted);
+      text-decoration: none;
+      padding: .35rem .6rem;
+      border-radius: 6px;
+      transition: all .2s ease;
+    }
+    .toc a:hover, .toc a.active {
+      background: rgba(201,168,76,.10);
+      color: var(--gold);
+    }
+    .toc .toc-section {
+      font-size: .68rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 1.25rem 0 .4rem .6rem;
+      font-weight: 700;
+    }
+    .toc .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px; height: 18px;
+      background: var(--gold);
+      color: var(--bg);
+      border-radius: 50%;
+      font-size: .62rem;
+      font-weight: 900;
+      margin-right: .4rem;
+      flex-shrink: 0;
+    }
+
+    /* Main content */
+    .main {
+      flex: 1;
+      padding: 3rem 3.5rem;
+      max-width: 840px;
+    }
+
+    /* Page header */
+    .page-header {
+      background: linear-gradient(135deg, #14120a, #1a1a1a);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.5rem;
+      margin-bottom: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 0% 50%, rgba(201,168,76,.10) 0%, transparent 60%);
+    }
+    .page-header > * { position: relative; z-index: 1; }
+    .page-header .badge {
+      display: inline-block;
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(201,168,76,.10);
+      border: 1px solid rgba(201,168,76,.3);
+      border-radius: 9999px;
+      padding: .25rem .85rem;
+      margin-bottom: 1rem;
+    }
+    .page-header h1 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); margin-bottom: .75rem; }
+    .page-header p  { color: var(--muted); font-size: .95rem; margin: 0; }
+
+    /* Sections */
+    .guide-section {
+      margin-bottom: 4rem;
+      scroll-margin-top: 2rem;
+    }
+    .section-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px; height: 32px;
+      background: var(--gold);
+      color: var(--bg);
+      border-radius: 50%;
+      font-size: .82rem;
+      font-weight: 900;
+      margin-right: .6rem;
+      flex-shrink: 0;
+    }
+    .section-heading {
+      display: flex;
+      align-items: center;
+      margin-bottom: .5rem;
+    }
+    .section-heading h2 { font-size: clamp(1.3rem, 2.5vw, 1.8rem); }
+    .section-divider {
+      width: 100%; height: 1px;
+      background: linear-gradient(90deg, var(--gold-dk), transparent);
+      margin-bottom: 2rem;
+    }
+
+    /* Info boxes */
+    .box {
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.25rem 0;
+      border-left: 3px solid;
+    }
+    .box h4  { font-size: .92rem; margin-bottom: .3rem; }
+    .box p   { font-size: .88rem; margin: 0; }
+    .box-gold   { background: rgba(201,168,76,.07); border-color: var(--gold); }
+    .box-green  { background: rgba(76,175,125,.07); border-color: var(--green); }
+    .box-blue   { background: rgba(91,155,213,.07); border-color: var(--blue); }
+    .box-orange { background: rgba(224,127,69,.07);  border-color: var(--orange); }
+    .box-red    { background: rgba(224,85,85,.07);   border-color: var(--red); }
+    .box-gold h4   { color: var(--gold); }
+    .box-green h4  { color: var(--green); }
+    .box-blue h4   { color: var(--blue); }
+    .box-orange h4 { color: var(--orange); }
+    .box-red h4    { color: var(--red); }
+
+    /* Steps */
+    .steps { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+    .step {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.1rem 1.4rem;
+    }
+    .step-num {
+      width: 28px; height: 28px; min-width: 28px;
+      background: var(--gold);
+      color: var(--bg);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .78rem; font-weight: 900;
+    }
+    .step h4 { font-size: .92rem; margin-bottom: .2rem; color: var(--white); }
+    .step p  { font-size: .85rem; color: var(--muted); margin: 0; }
+
+    /* Q&A */
+    .qa-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+    .qa-q {
+      padding: 1.1rem 1.4rem;
+      font-weight: 700;
+      color: var(--white);
+      font-size: .92rem;
+      display: flex;
+      align-items: flex-start;
+      gap: .75rem;
+      cursor: pointer;
+    }
+    .qa-q .q-badge {
+      background: var(--gold);
+      color: var(--bg);
+      font-size: .68rem;
+      font-weight: 900;
+      padding: 2px 7px;
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .qa-a {
+      padding: 0 1.4rem 1.1rem 3.3rem;
+      font-size: .88rem;
+      color: var(--text);
+      border-top: 1px solid var(--border);
+      padding-top: 1rem;
+    }
+    .qa-a .say {
+      background: rgba(76,175,125,.08);
+      border-left: 3px solid var(--green);
+      border-radius: 6px;
+      padding: .75rem 1rem;
+      margin-top: .6rem;
+      font-style: italic;
+      color: var(--text);
+      font-size: .88rem;
+    }
+    .qa-a .say::before { content: '💬 Say: '; color: var(--green); font-weight: 700; font-style: normal; }
+
+    /* Glossary */
+    .glossary-item {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 1rem;
+      padding: .9rem 0;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+      font-size: .9rem;
+    }
+    .glossary-item:last-child { border-bottom: none; }
+    .glossary-term { color: var(--gold); font-weight: 700; }
+    .glossary-def  { color: var(--text); }
+
+    /* Cost table */
+    .cost-table { width: 100%; border-collapse: collapse; }
+    .cost-table th, .cost-table td {
+      padding: .85rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      font-size: .88rem;
+    }
+    .cost-table th {
+      font-size: .7rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: var(--surface);
+    }
+    .cost-table tbody tr:last-child td { border-bottom: none; font-weight: 700; color: var(--white); }
+    .cost-table .price { text-align: right; color: var(--gold); font-weight: 700; }
+
+    /* Checklist */
+    .checklist { list-style: none; display: flex; flex-direction: column; gap: .6rem; }
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: .75rem;
+      font-size: .9rem;
+      color: var(--text);
+    }
+    .checklist li::before {
+      content: '☐';
+      color: var(--gold);
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      line-height: 1.4;
+    }
+
+    /* Timeline */
+    .timeline { display: flex; flex-direction: column; gap: 0; }
+    .tl-item {
+      display: flex;
+      gap: 1.25rem;
+      position: relative;
+    }
+    .tl-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 36px;
+      flex-shrink: 0;
+    }
+    .tl-dot {
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 2px solid var(--gold-dk);
+      margin-top: .35rem;
+      flex-shrink: 0;
+    }
+    .tl-line {
+      width: 2px;
+      flex: 1;
+      background: var(--border);
+      margin: 4px auto 0;
+    }
+    .tl-item:last-child .tl-line { display: none; }
+    .tl-body { padding-bottom: 2rem; flex: 1; }
+    .tl-day  { font-size: .72rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--gold); margin-bottom: .2rem; }
+    .tl-body h4 { font-size: .95rem; margin-bottom: .3rem; color: var(--white); }
+    .tl-body p  { font-size: .85rem; color: var(--muted); margin: 0; }
+
+    /* Print-friendly button */
+    .print-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: var(--gold);
+      color: var(--bg);
+      border: none;
+      border-radius: 9999px;
+      padding: .5rem 1.25rem;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: var(--ff-body);
+      transition: all .2s ease;
+    }
+    .print-btn:hover { background: var(--gold-lt); }
+
+    /* Responsive */
+    @media (max-width: 860px) {
+      .sidebar { display: none; }
+      .main    { padding: 2rem 1.5rem; }
+      .glossary-item { grid-template-columns: 1fr; gap: .25rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ── SIDEBAR TOC ── -->
+  <aside class="sidebar">
+    <div class="sidebar-title">📚 Study Guide</div>
+    <ul class="toc">
+      <li><span class="toc-section">Foundations</span></li>
+      <li><a href="#s1"><span class="num">1</span> How a Website Works</a></li>
+      <li><a href="#s2"><span class="num">2</span> Domain &amp; Hosting Explained</a></li>
+      <li><a href="#s3"><span class="num">3</span> How to Publish This Site</a></li>
+      <li><a href="#s4"><span class="num">4</span> True Costs Breakdown</a></li>
+      <li><span class="toc-section">The Meeting</span></li>
+      <li><a href="#s5"><span class="num">5</span> Questions They'll Ask</a></li>
+      <li><a href="#s6"><span class="num">6</span> Handling Objections</a></li>
+      <li><a href="#s7"><span class="num">7</span> After They Say Yes</a></li>
+      <li><span class="toc-section">Reference</span></li>
+      <li><a href="#s8"><span class="num">8</span> Key Terms Glossary</a></li>
+      <li><a href="#s9"><span class="num">9</span> Thursday Prep Checklist</a></li>
+    </ul>
+  </aside>
+
+  <!-- ── MAIN CONTENT ── -->
+  <main class="main">
+
+    <!-- Header -->
+    <div class="page-header">
+      <div class="badge">✂ Thursday Meeting Prep</div>
+      <h1>Your Complete Study Guide:<br>Selling the Golden Touch Website</h1>
+      <p>
+        Read this before Thursday. It covers how everything works, how you publish and hand it over,
+        what it costs, and a full Q&amp;A for every question they might throw at you.
+        By the end, you'll walk in knowing more than most web designers.
+      </p>
+      <div style="margin-top: 1.25rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+        <button class="print-btn" onclick="window.print()">🖨 Print / Save as PDF</button>
+        <span style="color: var(--muted); font-size: .8rem;">Or keep this tab open on your phone during the meeting</span>
+      </div>
+    </div>
+
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 1: HOW A WEBSITE WORKS            -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="guide-section" id="s1">
+      <div class="section-heading">
+        <span class="section-num">1</span>
+        <h2>How a Website Works (Plain English)</h2>
+      </div>
+      <div class="section-divider"></div>
+
+      <p>Think of a website like a shop. There are three things you need:</p>
+
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.5rem 0;">
+        <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: .75rem;">🏗️</div>
+          <strong>The Building</strong>
+          <p style="color: var(--muted); font-size: .82rem; margin-top: .4rem;">The actual web files (HTML, CSS) — the pages, design, and content. <em>This is what we've already built.</em></p>
+        </div>
+        <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: .75rem;">🌍</div>
+          <strong>The Address</strong>
+          <p style="color: var(--muted); font-size: .82rem; margin-top: .4rem;">The domain name (e.g. <code>goldentouchhair.com.au</code>) — how people find them online.</p>
+        </div>
+        <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: .75rem;">🖥️</div>
+          <strong>The Land</strong>
+          <p style="color: var(--muted); font-size: .82rem; margin-top: .4rem;">Hosting — a computer (server) that stores the files and makes them available 24/7.</p>
+        </div>
+      </div>
+
+      <p>When someone types <code>goldentouchhair.com.au</code> into their browser, it does this:</p>
+
+      <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; margin: 1.25rem 0; font-size: .88rem;">
+        <div style="display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; color: var(--muted);">
+          <span style="color: var(--white);">👤 User types URL</span>
+          <span>→</span>
+          <span>DNS looks up the address</span>
+          <span>→</span>
+          <span>Finds the hosting server</span>
+          <span>→</span>
+          <span>Downloads the HTML/CSS files</span>
+          <span>→</span>
+          <span style="color: var(--green);">✓ Website displays in browser</span>
+        </div>
+      </div>
+
+      <div class="box box-gold">
+        <h4>The key point to remember</h4>
+        <p>We've built the <strong>building</strong>. We still need to set up the <strong>address</strong> (domain) and the <strong>land</strong> (hosting) before the world can see it. That part is simple and is covered in Section 3.</p>
+      </div>
+
+      <h3 style="margin: 1.75rem 0 .75rem; font-size: 1.1rem;">What are the files actually made of?</h3>
+      <p>The website has 3 types of files — you don't need to know how to write them, just understand what they do:</p>
+      <ul style="list-style: none; display: flex; flex-direction: column; gap: .5rem; margin-top: .5rem;">
+        <li style="font-size: .9rem;">📄 <code>.html</code> — The content. Text, headings, buttons, structure. Like a Word document.</li>
+        <li style="font-size: .9rem;">🎨 <code>.css</code> — The design. Colours, fonts, layout, animations.</li>
+        <li style="font-size: .9rem;">⚡ <code>.js</code> — The behaviour. Things that move or respond (like the hamburger menu).</li>
+      </ul>
+    </div>
+
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 2: DOMAIN & HOSTING               -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="guide-section" id="s2">
+      <div class="section-heading">
+        <span class="section-num">2</span>
+        <h2>Domain &amp; Hosting Explained</h2>
+      </div>
+      <div class="section-divider"></div>
+
+      <h3 style="margin-bottom: .75rem; font-size: 1.1rem;">Domain Name</h3>
+      <p>A domain is the web address — e.g. <code>goldentouchhair.com.au</code>. You rent it (usually annually). For an Australian business, <code>.com.au</code> is the most trusted extension. Cost: <strong>~$15–$25/year</strong>.</p>
+
+      <div class="box box-blue">
+        <h4>Where to buy a domain</h4>
+        <p>Use <strong>Namecheap</strong> (namecheap.com), <strong>Crazy Domains</strong> (crazydomain.com.au — Australian, popular for .com.au), or <strong>VentraIP</strong> (Australian registrar). Search for the name, add to cart, pay. Done in 5 minutes.</p>
+      </div>
+
+      <h3 style="margin: 1.75rem 0 .75rem; font-size: 1.1rem;">Hosting</h3>
+      <p>Hosting is a server (a computer that never turns off) that stores the website files and shows them to visitors. You pay monthly or yearly to "rent space" on it.</p>
+
+      <p><strong>For this website, the best option is Netlify</strong> — it's free for basic static sites like this one and is trusted by millions of developers worldwide.</p>
+
+      <div class="box box-green">
+        <h4>Why Netlify is perfect for this</h4>
+        <p>Free plan covers everything this website needs. Fast. No server management. Custom domain connection is free. SSL certificate (the padlock 🔒) is automatic and free. Takes 10 minutes to set up.</p>
+      </div>
+
+      <h3 style="margin: 1.75rem 0 .75rem; font-size: 1.1rem;">What is SSL / the padlock 🔒?</h3>
+      <p>SSL is the security certificate that makes the URL show <code>https://</code> instead of <code>http://</code>. It means the connection is encrypted and safe. Google <strong>penalises sites without it</strong>. Netlify gives it free automatically when you connect a domain.</p>
+
+      <h3 style="margin: 1.75rem 0 .75rem; font-size: 1.1rem;">What is DNS?</h3>
+      <p>DNS (Domain Name System) is like a phonebook. When you register a domain (e.g. at Crazy Domains) and host it on Netlify, you need to <strong>tell the domain where to point</strong>. You do this by updating the domain's "nameservers" — Netlify gives you two lines to paste in, and it's done in under 5 minutes. Changes take 24–48 hours to fully activate (called "propagation").</p>
+    </div>
+
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 3: HOW TO PUBLISH                 -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="guide-section" id="s3">
+      <div class="section-heading">
+        <span class="section-num">3</span>
+        <h2>How to Publish This Website — Step by Step</h2>
+      </div>
+      <div class="section-divider"></div>
+
+      <p>This is the actual process from "files on your laptop" to "live on the internet". You can do all of this yourself — it takes about 30 minutes total.</p>
+
+      <div class="box box-orange">
+        <h4>What you need before starting</h4>
+        <p>The <code>golden-touch-website</code> folder (downloaded from GitHub) · A free Netlify account (sign up at netlify.com) · A domain purchased from Crazy Domains or Namecheap · A credit card for the domain (~$20)</p>
+      </div>
+
+      <h3 style="margin: 1.75rem 0 1rem; font-size: 1.1rem;">Step A — Deploy to Netlify (free, takes 2 minutes)</h3>
+      <ol class="steps">
+        <li class="step">
+          <span class="step-num">1</span>
+          <div><h4>Go to app.netlify.com/drop</h4><p>You don't even need an account for this step. Just go to the URL in your browser.</p></div>
+        </li>
+        <li class="step">
+          <span class="step-num">2</span>
+          <div><h4>Drag the <code>golden-touch-website</code> folder onto the page</h4><p>The whole folder — not just one file. Netlify uploads all 5 files at once.</p></div>
+        </li>
+        <li class="step">
+          <span class="step-num">3</span>
+          <div><h4>You get an instant live link</h4><p>Something like <code>https://funny-name-123456.netlify.app</code>. The site is now live. Share this for the preview.</p></div>
+        </li>
+        <li class="step">
+          <span class="step-num">4</span>
+          <div><h4>Create a free Netlify account and claim the site</h4><p>Sign up, then "claim" the site you just deployed. This lets you manage it, update files, and connect a custom domain.</p></div>
+        </li>
+      </ol>
+
+      <h3 style="margin: 1.75rem 0 1rem; font-size: 1.1rem;">Step B — Buy a Domain (~$20, takes 5 minutes)</h3>
+      <ol class="steps">
+        <li class="step">
+          <span class="step-num">1</span>
+          <div><h4>Go to crazydomains.com.au or namecheap.com</h4><p>Search for <code>goldentouchhair.com.au</code> or <code>goldentouchhairstyle.com.au</code></p></div>
+        </li>
+        <li class="step">
+          <span class="step-num">2</span>
+          <div><h4>Purchase it for 1–2 years</h4><p>Pay with card. ~$15–25/year for a .com.au. You'll get login credentials to the registrar dashboard.</p></div>
+        </li>
+      </ol>
+
+      <h3 style="margin: 1.75rem 0 1rem; font-size: 1.1rem;">Step C — Connect the Domain to Netlify (takes 10 minutes + 24 hours to activate)</h3>
+      <ol class="steps">
+        <li class="step">
+          <span class="step-num">1</span>
+          <div><h4>In Netlify: go to Site Settings → Domain Management → Add Custom Domain</h4><p>Type in the domain you just bought (e.g. <code>goldentouchhair.com.au</code>)</p></div>
+        </li>
+        <li class="step">
+          <span class="step-num">2</span>
+          <div><h4>Netlify shows you 2 nameserver addresses</h4><p>They look like: <code>dns1.p05.nsone.net</code> and <code>dns2.p05.nsone.net</code></p></div>
+        </li>
+        <li class="step">
+          <span class="step-num">3</span>
+          <div><h4>Log in to your domain registrar and update the nameservers</h4><p>Go to DNS settings for the domain → replace the existing nameservers with the two Netlify ones → save.</p></div>
+        </li>
+        <li class="step">
+          <span class="step-num">4</span>
+          <div><h4>Wait 24–48 hours for the change to propagate globally</h4><p>After that, visiting <code>goldentouchhair.com.au</code> will show the Golden Touch website. Netlify automatically adds the free SSL padlock.</p></div>
+        </li>
+      </ol>
+
+      <div class="box box-green">
+        <h4>✓ That's it — the website is live</h4>
+        <p>Anyone in the world who types the domain will see the Golden Touch Hair Style website. No ongoing technical work needed. If content needs updating, you re-drag the updated folder to Netlify — takes 30 seconds.</p>
+      </div>
+    </div>
+
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 4: REAL COSTS                     -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="guide-section" id="s4">
+      <div class="section-heading">
+        <span class="section-num">4</span>
+        <h2>True Costs Breakdown (Be Transparent)</h2>
+      </div>
+      <div class="section-divider"></div>
+
+      <p>Know these numbers cold before the meeting. Transparency builds trust.</p>
+
+      <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-top: 1.25rem;">
+        <table class="cost-table">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Who Pays</th>
+              <th>Frequency</th>
+              <th class="price">Cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Website build</strong> (your fee)</td>
+              <td>Business</td>
+              <td>One-time</td>
+              <td class="price">$1,000</td>
+            </tr>
+            <tr>
+              <td>Domain name (.com.au)</td>
+              <td>Business</td>
+              <td>Yearly</td>
+              <td class="price">~$20/yr</td>
+            </tr>
+            <tr>
+              <td>Netlify hosting</td>
+              <td>Business</td>
+              <td>Monthly</td>
+              <td class="price"><em>Free</em></td>
+            </tr>
+            <tr>
+              <td>SSL certificate (padlock)</td>
+              <td>—</td>
+              <td>—</td>
+              <td class="price"><em>Free (Netlify)</em></td>
+            </tr>
+            <tr>
+              <td>Ongoing content updates (optional)</td>
+              <td>Business</td>
+              <td>Monthly</td>
+              <td class="price">$75–100/mo</td>
+            </tr>
+            <tr>
+              <td style="color: var(--white); font-weight: 700;">Total first year</td>
+              <td></td>
+              <td></td>
+              <td class="price">~$1,020</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="box box-gold" style="margin-top: 1.5rem;">
+        <h4>💡 Important framing for the meeting</h4>
+        <p>The <strong>domain (~$20/year) and Netlify (free)</strong> are ongoing costs the business pays directly — not through you. Your fee is the one-time $1,000 build. This keeps it clean and shows you're not hiding ongoing charges in your price.</p>
+      </div>
+    </div>
+
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 5: QUESTIONS THEY'LL ASK          -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="guide-section" id="s5">
+      <div class="section-heading">
+        <span class="section-num">5</span>
+        <h2>Questions They Will Ask — With Your Answers</h2>
+      </div>
+      <div class="section-divider"></div>
+
+      <p>Read all of these. For the bolded ones — memorise the answer.</p>
+
+      <div class="qa-item">
+        <div class="qa-q"><span class="q-badge">Q</span> What exactly is a domain and do I really need one?</div>
+        <div class="qa-a">
+          <p>A domain is your address on the internet — like <code>goldentouchhair.com.au</code>. Without it, you can only share a long ugly link. With it, every time someone Google searches "Golden Touch Hair" or "barber Jordan Springs", your professional address comes up. It costs about $20 a year and you own it.</p>
+          <div class="say">Think of it like your shop address but for the internet. Without a proper address, how would people find you?</div>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <div class="qa-q"><span class="q-badge">Q</span> <strong>Will people actually find us on Google?</strong></div>
+        <div class="qa-a">
+          <p>Yes — but it takes a few weeks to build. When the site goes live, Google's bots will crawl it and index it. The website is already built with your suburb name, services, and address in the content — exactly what Google looks for. We can also update your <strong>Google Business Profile</strong> (free) to link to the new website, which speeds things up significantly. Local searches like "barber Jordan Springs" and "men's haircut Penrith" will start surfacing your site within 4–8 weeks.</p>
+          <div class="say">We've written the website content specifically to be found in local searches. And once we link it to your Google Business listing, you'll start appearing right at the top for people searching in Jordan Springs.</div>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <div class="qa-q"><span class="q-badge">Q</span> <strong>What happens if I want to change something — like my prices or hours?</strong></div>
+        <div class="qa-a">
+          <p>Two options: I can make changes for you (I charge $75/hour, minor changes usually take 15–30 mins so it's $20–40 a fix). Or I can hand you the files and show you how to edit text yourself in a free tool called VS Code — it's honestly not that hard for simple text changes like prices or hours.</p>
+          <div class="say">Easy — either send me a message and I'll update it same day, or I'll teach you how to do simple text edits yourself. Either way, it won't be a drama.</div>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <div class="qa-q"><span class="q-badge">Q</span> We already have Fresha — why do we need this?</div>
+        <div class="qa-a">
+          <p>Fresha is a booking system — it's great for managing appointments. But it doesn't help people <em>discover</em> you. A potential new client who's just moved to Jordan Springs will Google "barber near me" — your Fresha page won't show up. Your website will. The website doesn't replace Fresha — we actually link the "Book Now" button directly to your Fresha page. They work together.</p>
+          <div class="say">Fresha manages your existing clients. The website finds you new ones. They're a team — we keep Fresha for bookings and the website becomes your front door on Google.</div>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <div class="qa-q"><span class="q-badge">Q</span> <strong>How long does it take to go live?</strong></div>
+        <div class="qa-a">
+          <p>The website is already built — it's done. Publishing takes about 30 minutes of setup. The domain takes 24–48 hours to activate after we connect it. So realistically: you pay today, the site is live within 2 days.</p>
+          <div class="say">The site is literally finished and ready to go. Technically we could have it live by tomorrow — the only wait is 24 hours for the domain to activate, which is standard for all websites.</div>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <div class="qa-q"><span class="q-badge">Q</span> What about Instagram — isn't that enough?</div>
+        <div class="qa-a">
+          <p>Instagram is great for showing your work and engaging followers. But Instagram doesn't show your hours, your pricing, your address, or appear on Google searches. People who discover you on Instagram will then Google you to check you're legit — if there's no website, you lose their trust. The two work together: Instagram drives followers, the website closes the deal.</p>
+          <div class="say">Instagram is for people who already know you. Google is for people who've never heard of you. The website catches all the people searching for a barber in Jordan Springs who haven't found you yet.</div>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <div class="qa-q"><span class="q-badge">Q</span> Will it work on phones?</div>
+        <div class="qa-a">
+          <p>Yes — it's built mobile-first. Open it on your phone right now and it looks great. Every button, every image, every menu is designed for mobile. Over 70% of local searches happen on phones, so this was the top priority in the build.</p>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <div class="qa-q"><span class="q-badge">Q</span> What if we want more photos added later?</div>
+        <div class="qa-a">
+          <p>Easy — just send me the photos and I'll swap them in. If you get a monthly maintenance package ($75–100/month), this is included. One-off updates are $75/hour (usually 15–30 minutes per change).</p>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <div class="qa-q"><span class="q-badge">Q</span> <strong>Is $1,000 worth it?</strong></div>
+        <div class="qa-a">
+          <p>If this website brings in just 5 extra clients a week — which is very conservative for a barbershop ranking on Google — that's $200/week extra revenue. The website pays for itself in 5 weeks, then it's profit forever.</p>
+          <div class="say">Think about it this way — if you turned away 5 clients a week because they couldn't find you, that's $10,000 a year walking out the door. This website stops that from happening.</div>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <div class="qa-q"><span class="q-badge">Q</span> Do we own the website?</div>
+        <div class="qa-a">
+          <p>Yes — 100%. I hand over all the files. You own them outright. There's no ongoing fee to me. You can take the files to any other developer in the future if you want. No lock-in.</p>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <div class="qa-q"><span class="q-badge">Q</span> What's the payment process?</div>
+        <div class="qa-a">
+          <p>50% upfront to confirm the project ($500), 50% on delivery/go-live ($500). You can pay by bank transfer or cash. I'll send an invoice.</p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 6: HANDLING OBJECTIONS            -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="guide-section" id="s6">
+      <div class="section-heading">
+        <span class="section-num">6</span>
+        <h2>Handling Objections</h2>
+      </div>
+      <div class="section-divider"></div>
+
+      <div class="qa-item">
+        <div class="qa-q"><span class="q-badge">!</span> "We'll think about it / let us get back to you"</div>
+        <div class="qa-a">
+          <div class="say">Totally fair. Can I ask — is there anything specific holding you back? I want to make sure I've answered every question properly before you decide.</div>
+          <p style="margin-top:.75rem;">Then: try to find the real objection (price? not sure it'll work? need to ask a partner?) and address it directly. If they genuinely need time, ask if you can follow up Friday.</p>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <div class="qa-q"><span class="q-badge">!</span> "It's too expensive"</div>
+        <div class="qa-a">
+          <div class="say">I completely understand. The one thing I'd ask you to consider — if this website brings in just 2 new regular clients a month, it's paid for itself by month 3. And a haircut client usually comes back every 3–4 weeks. That's recurring revenue. Would a payment plan help — like $500 now and $500 when it goes live?</div>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <div class="qa-q"><span class="q-badge">!</span> "My [nephew/friend/cousin] can build one for free"</div>
+        <div class="qa-a">
+          <div class="say">That's great — and if that works out, brilliant! The difference is this one is already done, it's using your real photos, your actual hours, your real reviews, and it's ready to go live within 48 hours. There's no waiting, no back and forth, no "I'll get to it when I have time." You've already seen it — it's done right now.</div>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <div class="qa-q"><span class="q-badge">!</span> "We can just use a free website builder like Wix"</div>
+        <div class="qa-a">
+          <div class="say">Wix is an option, but there are trade-offs — it shows Wix branding on the free plan, it has monthly fees on paid plans ($25–50/month, which adds up to $300–600/year), and the templates look generic. What I've built is custom to your brand and you own the files outright with no ongoing platform fees. Over 3 years, my site is actually cheaper.</div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 7: AFTER THEY SAY YES             -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="guide-section" id="s7">
+      <div class="section-heading">
+        <span class="section-num">7</span>
+        <h2>After They Say Yes — The Process</h2>
+      </div>
+      <div class="section-divider"></div>
+
+      <p>Know this timeline so you sound confident and organised when they ask "okay, what happens next?"</p>
+
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-body">
+            <div class="tl-day">Day 1 — Thursday (after meeting)</div>
+            <h4>Collect payment deposit &amp; information</h4>
+            <p>Take 50% deposit ($500). Confirm their preferred domain name, phone number, email address, and social media links so you can add them to the site.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-body">
+            <div class="tl-day">Day 1–2 — Thursday/Friday</div>
+            <h4>Finalise the website files</h4>
+            <p>Update the phone number, email, and social links in the site. Make any small edits they requested in the meeting.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-body">
+            <div class="tl-day">Day 2 — Friday</div>
+            <h4>Buy the domain + deploy to Netlify</h4>
+            <p>Purchase <code>goldentouchhair.com.au</code> (~$20). Upload files to Netlify. Connect the domain by updating nameservers.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-body">
+            <div class="tl-day">Day 3–4 — Weekend</div>
+            <h4>Domain activates (DNS propagation)</h4>
+            <p>The domain becomes live globally. SSL certificate auto-activates. Send the client the live link to review.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-body">
+            <div class="tl-day">Day 5 — Monday</div>
+            <h4>Final tweaks + Google Business Profile update</h4>
+            <p>Make any final requested changes. Help them (or do it yourself) add the website URL to their Google Business Profile. This is free and helps Google rank them faster.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-body">
+            <div class="tl-day">Day 5 — Monday</div>
+            <h4>Collect final payment + handover</h4>
+            <p>Invoice the remaining $500. Hand over the website files, domain login details, and Netlify account credentials. Job done.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="box box-green" style="margin-top: 1.5rem;">
+        <h4>What to say: "What happens after I say yes?"</h4>
+        <p><em>"I collect 50% today, finalise the site with your phone number and details this week, buy the domain Friday, and you'll have a live website by the weekend. I'll send you the link to review before anything goes public. Final payment on delivery."</em></p>
+      </div>
+    </div>
+
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 8: GLOSSARY                       -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="guide-section" id="s8">
+      <div class="section-heading">
+        <span class="section-num">8</span>
+        <h2>Key Terms Glossary</h2>
+      </div>
+      <div class="section-divider"></div>
+
+      <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem;">
+        <div class="glossary-item"><span class="glossary-term">Domain</span><span class="glossary-def">The web address (e.g. <code>goldentouchhair.com.au</code>). Rented annually from a registrar like Crazy Domains.</span></div>
+        <div class="glossary-item"><span class="glossary-term">Hosting</span><span class="glossary-def">A server that stores the website files and serves them to visitors 24/7. Netlify is our hosting provider (free tier).</span></div>
+        <div class="glossary-item"><span class="glossary-term">DNS</span><span class="glossary-def">Domain Name System — like a phonebook that connects a domain name to a server. You update "nameservers" to point a domain to Netlify.</span></div>
+        <div class="glossary-item"><span class="glossary-term">SSL / HTTPS</span><span class="glossary-def">The security certificate that adds the 🔒 padlock. Makes the URL start with <code>https://</code>. Netlify provides this for free.</span></div>
+        <div class="glossary-item"><span class="glossary-term">HTML</span><span class="glossary-def">The content and structure of a web page — text, buttons, images, links.</span></div>
+        <div class="glossary-item"><span class="glossary-term">CSS</span><span class="glossary-def">The design/styling — colours, fonts, layouts, animations.</span></div>
+        <div class="glossary-item"><span class="glossary-term">Responsive</span><span class="glossary-def">A website that automatically adjusts its layout to look good on mobile, tablet, and desktop.</span></div>
+        <div class="glossary-item"><span class="glossary-term">SEO</span><span class="glossary-def">Search Engine Optimisation — the practice of making a website appear higher in Google search results. Local SEO targets searches like "barber near me".</span></div>
+        <div class="glossary-item"><span class="glossary-term">Netlify</span><span class="glossary-def">The hosting platform we're using. Free for static websites. You drag a folder in and it's live. Trusted by millions of developers.</span></div>
+        <div class="glossary-item"><span class="glossary-term">Propagation</span><span class="glossary-def">The 24–48 hour period after connecting a domain where the change spreads globally across all DNS servers. Normal and expected.</span></div>
+        <div class="glossary-item"><span class="glossary-term">Google Business Profile</span><span class="glossary-def">The free Google listing that shows your business on Google Maps and in local search results. Adding the website URL to it helps Google rank the site faster.</span></div>
+        <div class="glossary-item"><span class="glossary-term">Static website</span><span class="glossary-def">A website made of plain HTML/CSS files — no database, no CMS. Fast, cheap to host (often free), simple, secure. Perfect for a barbershop site.</span></div>
+        <div class="glossary-item"><span class="glossary-term">CMS</span><span class="glossary-def">Content Management System (e.g. WordPress) — lets non-technical users edit content. Not needed for this site; updates are simple text file edits.</span></div>
+        <div class="glossary-item"><span class="glossary-term">Registrar</span><span class="glossary-def">The company you buy a domain from (Crazy Domains, Namecheap, VentraIP). Separate from the hosting company.</span></div>
+      </div>
+    </div>
+
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 9: THURSDAY PREP CHECKLIST        -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="guide-section" id="s9">
+      <div class="section-heading">
+        <span class="section-num">9</span>
+        <h2>Thursday Prep Checklist</h2>
+      </div>
+      <div class="section-divider"></div>
+
+      <h3 style="font-size: 1rem; color: var(--gold); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: .1em;">Before the meeting</h3>
+      <ul class="checklist">
+        <li>Deploy the website to Netlify Drop — have a live preview link ready to show on your phone</li>
+        <li>Open <code>pitch.html</code> in a browser tab — ready to walk through</li>
+        <li>Open <code>index.html</code> in another tab — ready to show the actual site</li>
+        <li>Read all of Section 5 (Q&amp;A) at least twice</li>
+        <li>Know the price confidently: <strong>$1,000 one-time, ~$20/yr domain, hosting is free</strong></li>
+        <li>Prepare a simple invoice template (your name, ABN if you have one, amount, bank details)</li>
+        <li>Bring a notepad to write down their phone number, email, social links</li>
+        <li>Charge your phone/laptop the night before</li>
+      </ul>
+
+      <h3 style="font-size: 1rem; color: var(--gold); margin: 1.75rem 0 1rem; text-transform: uppercase; letter-spacing: .1em;">During the meeting — order of play</h3>
+      <ul class="checklist">
+        <li><strong>Start:</strong> "Thanks for meeting me — I've built something specific for you, can I show you?" → open the site on your phone</li>
+        <li>Show home page on mobile — scroll slowly, let them take it in</li>
+        <li>Show the reviews section — "these are your real reviews, on your site"</li>
+        <li>Show the services page with pricing</li>
+        <li>Show the contact/booking page — "people can request appointments 24/7"</li>
+        <li>Then open the pitch page — walk through the Fresha comparison and revenue calculator</li>
+        <li>Let them ask questions — you have the answers</li>
+        <li>Close: "The site is done and ready. I can have it live within 48 hours of today."</li>
+      </ul>
+
+      <h3 style="font-size: 1rem; color: var(--gold); margin: 1.75rem 0 1rem; text-transform: uppercase; letter-spacing: .1em;">If they say yes</h3>
+      <ul class="checklist">
+        <li>Ask for their preferred domain name (confirm goldentouchhair.com.au)</li>
+        <li>Get: phone number, email address, Facebook/Instagram URLs</li>
+        <li>Agree on payment method (bank transfer or cash)</li>
+        <li>Collect 50% deposit or arrange transfer</li>
+        <li>Confirm timeline: "Live by this weekend, remaining payment on delivery"</li>
+        <li>Leave them the pitch.html page to keep as a reference</li>
+      </ul>
+
+      <div class="box box-gold" style="margin-top: 2rem;">
+        <h4>🧠 The one thing to remember walking in</h4>
+        <p>The website is already done. You're not selling a promise — you're showing them a finished product and asking if they want it live. That's a much easier conversation than most sales meetings. Confidence in what you've built is your biggest asset.</p>
+      </div>
+
+    </div>
+
+    <div style="text-align: center; padding: 3rem 0 1rem; border-top: 1px solid var(--border); margin-top: 2rem;">
+      <p style="font-family: var(--ff-head); font-size: 1.3rem; color: var(--gold); margin-bottom: .5rem;">✂ Good luck Thursday.</p>
+      <p style="color: var(--muted); font-size: .88rem;">You've got this. The site speaks for itself.</p>
+    </div>
+
+  </main>
+
+</div>
+
+<script>
+  /* Highlight active TOC link on scroll */
+  const sections = document.querySelectorAll('.guide-section');
+  const tocLinks = document.querySelectorAll('.toc a');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        tocLinks.forEach(l => l.classList.remove('active'));
+        const link = document.querySelector(`.toc a[href="#${e.target.id}"]`);
+        if (link) link.classList.add('active');
+      }
+    });
+  }, { threshold: .3 });
+  sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
