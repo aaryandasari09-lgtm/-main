@@ -56,6 +56,58 @@
 
 
   <!-- ═══════════════════════════════════════════════════════
+       LOCATION TABS
+  ═══════════════════════════════════════════════════════ -->
+  <div style="background: var(--clr-bg); border-bottom: 1px solid var(--clr-border); padding: 1rem 0; position: sticky; top: var(--nav-h); z-index: 100;">
+    <div class="container">
+      <div style="display: flex; gap: .5rem; flex-wrap: wrap;">
+        <button class="loc-tab active" data-loc="jordan" onclick="switchLoc('jordan', this)">📍 Jordan Springs</button>
+        <button class="loc-tab" data-loc="camden" onclick="switchLoc('camden', this)">📍 Camden</button>
+        <button class="loc-tab" data-loc="stmarys" onclick="switchLoc('stmarys', this)">📍 St Marys</button>
+        <button class="loc-tab" data-loc="pitttown" onclick="switchLoc('pitttown', this)">📍 Pitt Town</button>
+      </div>
+    </div>
+  </div>
+  <style>
+    .loc-tab {
+      background: var(--clr-surface); border: 1px solid var(--clr-border);
+      border-radius: var(--r-pill); padding: .4rem 1.1rem;
+      font-size: .78rem; font-weight: 700; color: var(--clr-muted);
+      cursor: pointer; transition: var(--ease); font-family: var(--ff-body);
+      letter-spacing: .05em;
+    }
+    .loc-tab:hover  { border-color: var(--clr-gold); color: var(--clr-gold); }
+    .loc-tab.active { background: var(--clr-gold); border-color: var(--clr-gold); color: var(--clr-bg); }
+  </style>
+
+  <!-- Location info blocks (toggle with JS) -->
+  <div id="loc-jordan" class="loc-info-block" style="background: rgba(201,168,76,.04); border-bottom: 1px solid var(--clr-border); padding: .85rem 0;">
+    <div class="container" style="display:flex; gap: 2rem; flex-wrap: wrap; font-size:.85rem; color: var(--clr-muted);">
+      <span>📍 <strong style="color:var(--clr-white);">11/56 Lakeside Parade, Jordan Springs NSW 2747</strong></span>
+      <span>🕐 Mon–Fri 9am–6pm · <strong style="color:var(--clr-gold);">Thu till 9pm</strong> · Sat 8:30am–5:30pm · Sun 9am–5pm</span>
+    </div>
+  </div>
+  <div id="loc-camden" class="loc-info-block" style="display:none; background: rgba(201,168,76,.04); border-bottom: 1px solid var(--clr-border); padding: .85rem 0;">
+    <div class="container" style="display:flex; gap: 2rem; flex-wrap: wrap; font-size:.85rem; color: var(--clr-muted);">
+      <span>📍 <strong style="color:var(--clr-white);">106 Argyle St, Camden NSW 2570</strong></span>
+      <span>🕐 Mon–Fri 9am–6pm · Sat 8:30am–5pm · Sun Closed</span>
+    </div>
+  </div>
+  <div id="loc-stmarys" class="loc-info-block" style="display:none; background: rgba(201,168,76,.04); border-bottom: 1px solid var(--clr-border); padding: .85rem 0;">
+    <div class="container" style="display:flex; gap: 2rem; flex-wrap: wrap; font-size:.85rem; color: var(--clr-muted);">
+      <span>📍 <strong style="color:var(--clr-white);">St Marys Village Shopping Centre, St Marys NSW 2760</strong></span>
+      <span>🕐 Mon–Fri 9am–6pm · Sat 9am–5pm</span>
+    </div>
+  </div>
+  <div id="loc-pitttown" class="loc-info-block" style="display:none; background: rgba(201,168,76,.04); border-bottom: 1px solid var(--clr-border); padding: .85rem 0;">
+    <div class="container" style="display:flex; gap: 2rem; flex-wrap: wrap; font-size:.85rem; color: var(--clr-muted);">
+      <span>📍 <strong style="color:var(--clr-white);">Pitt Town, Hawkesbury NSW</strong></span>
+      <span>🕐 Mon–Fri 9am–6pm · Sat 9am–5pm</span>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════════════
        QUICK INFO STRIP
   ═══════════════════════════════════════════════════════ -->
   <div class="stats-bar">
@@ -227,7 +279,9 @@
               </p>
             </div>
 
-            <form id="bookingForm" onsubmit="handleSubmit(event)" novalidate>
+            <!-- netlify attribute makes Netlify capture all form submissions automatically -->
+            <form id="bookingForm" name="golden-touch-booking" method="POST" data-netlify="true" onsubmit="handleSubmit(event)" novalidate>
+              <input type="hidden" name="form-name" value="golden-touch-booking" />
 
               <div class="form-row">
                 <div class="form-group">
@@ -249,6 +303,17 @@
                   <label class="form-label" for="email">Email Address</label>
                   <input type="email" id="email" name="email" class="form-ctrl" placeholder="you@email.com" />
                 </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="location">Preferred Location *</label>
+                <select id="location" name="location" class="form-ctrl" required>
+                  <option value="" disabled selected>— Select a location —</option>
+                  <option value="jordan-springs">Jordan Springs — 11/56 Lakeside Parade</option>
+                  <option value="camden">Camden — 106 Argyle St</option>
+                  <option value="st-marys">St Marys — Village Shopping Centre</option>
+                  <option value="pitt-town">Pitt Town — Hawkesbury</option>
+                </select>
               </div>
 
               <div class="form-group">
@@ -534,6 +599,7 @@
   </footer>
 
 
+  <script src="chatbot.js"></script>
   <!-- ── Scripts ── -->
   <script>
     /* Nav toggle */
@@ -548,6 +614,18 @@
       toggle.classList.remove('open');
       links.classList.remove('open');
     }));
+
+    /* Location tab switcher */
+    function switchLoc(loc, btn) {
+      document.querySelectorAll('.loc-tab').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.loc-info-block').forEach(b => b.style.display = 'none');
+      document.getElementById('loc-' + loc).style.display = 'block';
+      /* Pre-select in the form */
+      const map = { jordan: 'jordan-springs', camden: 'camden', stmarys: 'st-marys', pitttown: 'pitt-town' };
+      const sel = document.getElementById('location');
+      if (sel && map[loc]) sel.value = map[loc];
+    }
 
     /* Set min date to today */
     const today = new Date().toISOString().split('T')[0];

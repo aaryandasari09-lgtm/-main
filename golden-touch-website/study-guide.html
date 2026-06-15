@@ -403,6 +403,7 @@
       <li><span class="toc-section">Reference</span></li>
       <li><a href="#s8"><span class="num">8</span> Key Terms Glossary</a></li>
       <li><a href="#s9"><span class="num">9</span> Thursday Prep Checklist</a></li>
+      <li><a href="#s10"><span class="num">10</span> Contact &amp; Booking Process</a></li>
     </ul>
   </aside>
 
@@ -953,6 +954,78 @@
       <div class="box box-gold" style="margin-top: 2rem;">
         <h4>🧠 The one thing to remember walking in</h4>
         <p>The website is already done. You're not selling a promise — you're showing them a finished product and asking if they want it live. That's a much easier conversation than most sales meetings. Confidence in what you've built is your biggest asset.</p>
+      </div>
+
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 10: HOW CONTACT & BOOKING WORKS  -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="guide-section" id="s10">
+      <div class="section-heading">
+        <span class="section-num">10</span>
+        <h2>How Contact &amp; Booking Works After They Own the Website</h2>
+      </div>
+      <div class="section-divider"></div>
+
+      <p>This is a critical thing to understand — and to be able to explain clearly. A static website doesn't automatically "receive" form submissions or phone calls. Here's exactly how the pipeline works:</p>
+
+      <h3 style="font-size: 1.05rem; color: var(--gold); margin: 1.5rem 0 .75rem; text-transform: uppercase; letter-spacing: .1em;">The 3 Ways Clients Contact Them</h3>
+
+      <ol class="steps">
+        <li class="step">
+          <span class="step-num">1</span>
+          <div>
+            <h4>Phone Call (most immediate)</h4>
+            <p>The "Call Us Now" button in the hero and CTA sections uses a <code>tel:</code> link. On a phone, tapping it auto-dials. Once you add the real phone number, this works immediately — no setup needed. This is still how most people book a barbershop.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-num">2</span>
+          <div>
+            <h4>Booking Form → Netlify Forms (automatic, free)</h4>
+            <p>The contact form has a <code>data-netlify="true"</code> attribute already added. When hosted on Netlify, this one attribute makes Netlify automatically capture every form submission — no backend, no server, no code needed. Submissions appear in the Netlify dashboard AND get emailed to the business. Free up to 100 submissions/month.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-num">3</span>
+          <div>
+            <h4>"Book Now" → Links to Fresha</h4>
+            <p>The main "Book Now" buttons can link directly to their Fresha booking page (just replace the <code>href</code> in the button). Clients click Book Now → land on Fresha → pick a time → confirmed. The website drives the traffic; Fresha handles the scheduling.</p>
+          </div>
+        </li>
+      </ol>
+
+      <h3 style="font-size: 1.05rem; color: var(--gold); margin: 1.75rem 0 .75rem; text-transform: uppercase; letter-spacing: .1em;">How Netlify Forms Works (Step by Step)</h3>
+
+      <div class="box box-blue">
+        <h4>What the business owner needs to know</h4>
+        <p>They log into their free Netlify account → click "Forms" in the dashboard → see every booking request submitted with all the details filled in. They can also set up email notifications so every submission goes straight to their inbox or phone.</p>
+      </div>
+
+      <ol class="steps">
+        <li class="step"><span class="step-num">1</span><div><h4>Client fills in the form on the website</h4><p>Name, phone, preferred location, service, date/time, any notes. Hits "Request Appointment."</p></div></li>
+        <li class="step"><span class="step-num">2</span><div><h4>Netlify captures the submission instantly</h4><p>Because the form has <code>data-netlify="true"</code>. No backend code needed — Netlify handles it automatically.</p></div></li>
+        <li class="step"><span class="step-num">3</span><div><h4>Business gets an email notification</h4><p>Configure in Netlify dashboard: Settings → Forms → Notifications → add their email. Every submission triggers an email with all the details.</p></div></li>
+        <li class="step"><span class="step-num">4</span><div><h4>Business calls/texts the client to confirm</h4><p>They see the client's phone number in the submission — quick call to confirm the slot. Takes 1 minute.</p></div></li>
+      </ol>
+
+      <h3 style="font-size: 1.05rem; color: var(--gold); margin: 1.75rem 0 .75rem; text-transform: uppercase; letter-spacing: .1em;">What the Business Actually "Does" Day to Day</h3>
+
+      <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; font-size: .9rem;">
+        <p style="margin-bottom: .75rem;">Once the site is live, the day-to-day is simple:</p>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: .6rem;">
+          <li style="display:flex;gap:.75rem;"><span style="color:var(--green);">✓</span> Check their Netlify email notifications for new booking requests</li>
+          <li style="display:flex;gap:.75rem;"><span style="color:var(--green);">✓</span> Call/text clients back to confirm times</li>
+          <li style="display:flex;gap:.75rem;"><span style="color:var(--green);">✓</span> Log into Netlify dashboard to see all submissions</li>
+          <li style="display:flex;gap:.75rem;"><span style="color:var(--green);">✓</span> Keep Fresha updated for existing regular clients</li>
+          <li style="display:flex;gap:.75rem;"><span style="color:var(--muted);">—</span> <span style="color:var(--muted);">No technical knowledge required once it's live</span></li>
+        </ul>
+      </div>
+
+      <div class="box box-gold" style="margin-top: 1.5rem;">
+        <h4>💬 How to explain this in the meeting</h4>
+        <p><em>"You don't need to do anything technical. Someone fills in the form, you get an email on your phone with their name, number, what they want, and when. You call them back to confirm. That's it. Or if you prefer, we link the Book Now button straight to your Fresha — completely up to you."</em></p>
       </div>
 
     </div>

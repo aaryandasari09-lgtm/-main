@@ -1079,6 +1079,99 @@ textarea.form-ctrl { resize: vertical; min-height: 120px; }
 .footer-btm-links a:hover { color: var(--clr-gold); }
 
 
+/* ── 19a. Locations Grid ──────────────────────────────── */
+.locations-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-6);
+}
+
+.location-card {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  transition: var(--ease);
+  position: relative;
+}
+.location-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--clr-gold-dk), var(--clr-gold-lt));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .35s ease;
+}
+.location-card:hover {
+  border-color: rgba(201,168,76,.4);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+.location-card:hover::before { transform: scaleX(1); }
+
+.location-card-img {
+  width: 100%; height: 180px;
+  object-fit: cover;
+  background: var(--clr-surface-alt);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 3.5rem;
+  color: var(--clr-gold);
+}
+.location-card-body { padding: var(--sp-6); }
+
+.location-tag {
+  display: inline-block;
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--clr-gold);
+  background: var(--clr-gold-muted);
+  border: 1px solid rgba(201,168,76,.25);
+  border-radius: var(--r-pill);
+  padding: 2px 8px;
+  margin-bottom: var(--sp-3);
+}
+.location-card h3 { font-size: 1.15rem; margin-bottom: var(--sp-2); }
+
+.location-detail {
+  display: flex;
+  align-items: flex-start;
+  gap: .6rem;
+  font-size: .82rem;
+  color: var(--clr-muted);
+  margin-bottom: var(--sp-2);
+}
+.location-detail .ico { font-size: .9rem; flex-shrink: 0; margin-top: 1px; }
+.location-detail strong { color: var(--clr-text); }
+
+.location-card-foot {
+  padding: var(--sp-4) var(--sp-6);
+  border-top: 1px solid var(--clr-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.open-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: .72rem; font-weight: 700;
+  color: var(--clr-green, #4caf7d);
+}
+.open-badge::before {
+  content: '';
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #4caf7d;
+  display: block;
+  animation: pulse-dot 2s infinite;
+}
+@keyframes pulse-dot {
+  0%,100% { opacity: 1; }
+  50% { opacity: .4; }
+}
+
 /* ── 19. Animations ───────────────────────────────────── */
 @keyframes pulse {
   0%, 100% { opacity: 1; transform: scale(1); }
