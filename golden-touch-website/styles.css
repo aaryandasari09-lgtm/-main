@@ -1088,12 +1088,116 @@ textarea.form-ctrl { resize: vertical; min-height: 120px; }
   from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+@keyframes shimmer {
+  0%   { background-position: -400% center; }
+  100% { background-position:  400% center; }
+}
+@keyframes glowPulse {
+  0%, 100% { text-shadow: 0 0 20px rgba(201,168,76,.4), 0 0 40px rgba(201,168,76,.2); }
+  50%       { text-shadow: 0 0 35px rgba(201,168,76,.7), 0 0 70px rgba(201,168,76,.35), 0 0 100px rgba(201,168,76,.15); }
+}
+@keyframes borderShimmer {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
 .fade-up { animation: fadeUp .7s ease both; }
 .delay-1 { animation-delay: .10s; }
 .delay-2 { animation-delay: .20s; }
 .delay-3 { animation-delay: .30s; }
 .delay-4 { animation-delay: .40s; }
+
+/* Gold shimmer text */
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    var(--clr-gold-dk) 0%,
+    var(--clr-gold-lt) 25%,
+    #fff8e0       40%,
+    var(--clr-gold-lt) 55%,
+    var(--clr-gold-dk) 80%,
+    var(--clr-gold)    100%
+  );
+  background-size: 400% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+/* Glow on the hero brand name */
+.brand-glow {
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+/* Logo mark (scissors icon before brand name) */
+.logo-mark {
+  display: inline-block;
+  font-size: .9em;
+  margin-right: .15em;
+  vertical-align: middle;
+  opacity: .85;
+}
+
+/* Photo gallery strip */
+.gallery-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  overflow: hidden;
+  border-radius: var(--r-lg);
+}
+.gallery-strip-item {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+}
+.gallery-strip-item img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform .5s ease;
+  display: block;
+}
+.gallery-strip-item:hover img {
+  transform: scale(1.08);
+}
+.gallery-strip-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.55) 0%, transparent 55%);
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+.gallery-strip-item:hover::after { opacity: 1; }
+
+/* Enhanced nav logo */
+.nav-logo-main {
+  font-family: var(--ff-head);
+  font-size: 1.3rem !important;
+  font-weight: 900 !important;
+  letter-spacing: .03em;
+}
+
+/* Decorative heading rule */
+.fancy-rule {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  margin: var(--sp-4) 0 var(--sp-6);
+}
+.fancy-rule::before,
+.fancy-rule::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--clr-gold), transparent);
+}
+.fancy-rule span {
+  color: var(--clr-gold);
+  font-size: 1.1rem;
+}
 
 
 /* ── 20. Responsive Breakpoints ───────────────────────── */
