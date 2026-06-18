@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Golden Touch Hair Style — Website Proposal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --gold:      #c9a84c;
+      --gold-lt:   #e8c96d;
+      --gold-dk:   #a07c30;
+      --bg:        #0d0d0d;
+      --bg-alt:    #141414;
+      --surface:   #1a1a1a;
+      --border:    #2c2c2c;
+      --text:      #d8cfc0;
+      --muted:     #7a7a7a;
+      --white:     #ffffff;
+      --green:     #4caf7d;
+      --red:       #e05555;
+      --ff-head:   'Playfair Display', Georgia, serif;
+      --ff-body:   'Lato', Arial, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--ff-body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1,h2,h3,h4 { font-family: var(--ff-head); color: var(--white); line-height: 1.15; }
+    a { color: var(--gold); text-decoration: none; }
+    p { margin-bottom: 1rem; }
+    p:last-child { margin-bottom: 0; }
+    img { display: block; max-width: 100%; }
+
+    .container { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
+    .section    { padding: 5rem 0; }
+    .section-alt { background: var(--bg-alt); }
+
+    .label {
+      display: inline-block;
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: .75rem;
+    }
+
+    .divider {
+      width: 50px; height: 3px;
+      background: linear-gradient(90deg, var(--gold-dk), var(--gold-lt));
+      border-radius: 9999px;
+      margin: 1rem 0 1.75rem;
+    }
+    .divider.center { margin-left: auto; margin-right: auto; }
+
+    /* ── HERO ── */
+    .pitch-hero {
+      background: linear-gradient(135deg, #0d0d0d 0%, #14120a 60%, #0d0d0d 100%);
+      padding: 5rem 0 4rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .pitch-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 50%, rgba(201,168,76,.10) 0%, transparent 65%);
+    }
+    .pitch-hero .container { position: relative; z-index: 1; }
+
+    .pitch-hero .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: rgba(201,168,76,.10);
+      border: 1px solid rgba(201,168,76,.3);
+      border-radius: 9999px;
+      padding: .35rem 1rem;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+
+    .pitch-hero h1 {
+      font-size: clamp(2.2rem, 6vw, 3.8rem);
+      font-weight: 900;
+      margin-bottom: 1rem;
+    }
+    .pitch-hero h1 span { color: var(--gold); font-style: italic; }
+
+    .pitch-hero p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 580px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .hero-preview-img {
+      max-width: 700px;
+      margin: 0 auto;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 60px rgba(0,0,0,.7);
+    }
+    .hero-preview-img img {
+      width: 100%;
+      object-fit: cover;
+    }
+
+    /* ── STAT CARDS ── */
+    .stat-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      text-align: center;
+    }
+    .stat-card .num {
+      font-family: var(--ff-head);
+      font-size: 2.4rem;
+      font-weight: 900;
+      color: var(--gold);
+      display: block;
+      line-height: 1;
+    }
+    .stat-card .lbl { font-size: .78rem; color: var(--muted); margin-top: .4rem; display: block; }
+
+    /* ── COMPARISON TABLE ── */
+    .compare-table { width: 100%; border-collapse: collapse; }
+    .compare-table th, .compare-table td {
+      padding: 1rem 1.25rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      font-size: .9rem;
+    }
+    .compare-table th {
+      font-size: .72rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      background: var(--surface);
+      color: var(--gold);
+    }
+    .compare-table th:first-child { border-radius: 0; }
+    .compare-table tbody tr:hover { background: rgba(255,255,255,.02); }
+    .compare-table tbody tr:last-child td { border-bottom: none; }
+
+    .tick  { color: var(--green); font-weight: 900; font-size: 1.1rem; }
+    .cross { color: var(--red);   font-weight: 900; font-size: 1.1rem; }
+    .part  { color: var(--gold);  font-weight: 700; }
+
+    /* ── REVENUE CALC ── */
+    .calc-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .calc-header {
+      background: linear-gradient(135deg, var(--gold-dk), var(--gold));
+      padding: 1.5rem 2rem;
+    }
+    .calc-header h3 { color: var(--bg); margin: 0; font-size: 1.1rem; }
+    .calc-header p  { color: rgba(13,13,13,.75); font-size: .85rem; margin: .25rem 0 0; }
+
+    .calc-body { padding: 2rem; }
+
+    .calc-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: .85rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: .9rem;
+    }
+    .calc-row:last-child { border-bottom: none; }
+    .calc-row .lbl { color: var(--muted); }
+    .calc-row .val { font-weight: 700; color: var(--white); font-family: var(--ff-head); font-size: 1.05rem; }
+    .calc-row .val.green { color: var(--green); }
+    .calc-row .val.gold  { color: var(--gold); font-size: 1.3rem; }
+
+    /* ── FRESHA PROBLEMS ── */
+    .problem-list { display: flex; flex-direction: column; gap: 1rem; }
+    .problem-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--red);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+    }
+    .problem-ico { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
+    .problem-item h4 { font-size: .95rem; margin-bottom: .2rem; color: var(--white); }
+    .problem-item p  { font-size: .85rem; color: var(--muted); margin: 0; }
+
+    /* ── BENEFITS LIST ── */
+    .benefit-list { display: flex; flex-direction: column; gap: 1rem; }
+    .benefit-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--green);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+    }
+    .benefit-ico { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
+    .benefit-item h4 { font-size: .95rem; margin-bottom: .2rem; color: var(--white); }
+    .benefit-item p  { font-size: .85rem; color: var(--muted); margin: 0; }
+
+    /* ── PRICE CARD ── */
+    .price-card {
+      background: var(--surface);
+      border: 2px solid var(--gold);
+      border-radius: 20px;
+      overflow: hidden;
+      max-width: 560px;
+      margin: 0 auto;
+      box-shadow: 0 8px 40px rgba(201,168,76,.2);
+    }
+    .price-card-head {
+      background: linear-gradient(135deg, var(--gold-dk), var(--gold), var(--gold-lt));
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+    .price-card-head h3 { color: var(--bg); font-size: 1.4rem; margin-bottom: .25rem; }
+    .price-card-head p  { color: rgba(13,13,13,.7); font-size: .85rem; margin: 0; }
+    .price-card-price {
+      font-family: var(--ff-head);
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: var(--bg);
+      line-height: 1;
+      display: block;
+      margin: 1rem 0 .25rem;
+    }
+    .price-card-price sup { font-size: 1.5rem; vertical-align: super; }
+    .price-card-price sub { font-size: 1rem; font-weight: 400; }
+
+    .price-card-body { padding: 2rem; }
+    .price-includes { list-style: none; margin-bottom: 1.5rem; }
+    .price-includes li {
+      display: flex;
+      align-items: flex-start;
+      gap: .75rem;
+      padding: .6rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: .9rem;
+      color: var(--text);
+    }
+    .price-includes li:last-child { border-bottom: none; }
+    .price-includes li span:first-child { color: var(--green); font-weight: 900; flex-shrink: 0; }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      border-radius: 9999px;
+      font-family: var(--ff-body);
+      font-size: .85rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      text-align: center;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all .3s ease;
+      text-decoration: none;
+    }
+    .btn-gold { background: var(--gold); color: var(--bg); border-color: var(--gold); }
+    .btn-gold:hover { background: var(--gold-lt); }
+    .btn-outline { background: transparent; color: var(--gold); border-color: var(--gold); margin-top: .75rem; }
+    .btn-outline:hover { background: var(--gold); color: var(--bg); }
+
+    /* ── QUOTE ── */
+    .big-quote {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 3rem 2.5rem;
+      text-align: center;
+      position: relative;
+    }
+    .big-quote::before {
+      content: '"';
+      position: absolute;
+      top: -1.2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--ff-head);
+      font-size: 6rem;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .big-quote p {
+      font-family: var(--ff-head);
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      color: var(--white);
+      font-style: italic;
+      line-height: 1.7;
+    }
+    .big-quote .source { font-size: .8rem; color: var(--muted); margin-top: 1rem; }
+
+    /* ── FOOTER ── */
+    .pitch-footer {
+      background: #080808;
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 0;
+      text-align: center;
+    }
+    .pitch-footer p { color: var(--muted); font-size: .8rem; margin: 0; }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .stat-cards { grid-template-columns: 1fr; }
+      .compare-table th:nth-child(2), .compare-table td:nth-child(2) { display: none; }
+      .price-card-price { font-size: 2.8rem; }
+      .big-quote { padding: 2.5rem 1.5rem; }
+      .section { padding: 3.5rem 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════════════ -->
+  <div class="pitch-hero">
+    <div class="container">
+      <div class="badge">✂ Website Proposal</div>
+      <h1>Your Business Deserves More<br>Than a <span>Fresha Listing.</span></h1>
+      <p>
+        Here's a custom-built website for Golden Touch Hair Style — and why it will
+        bring in more clients, more trust, and more revenue than any booking app alone.
+      </p>
+
+      <!-- Live preview screenshot placeholder — swap with a real screenshot -->
+      <div class="hero-preview-img">
+        <img src="https://images.fresha.com/lead-images/placeholders/barbershop-26.jpg?class=venue-gallery-mobile"
+             alt="Golden Touch Hair Style website preview" style="max-height: 380px; object-fit: cover;" />
+        <div style="background: var(--surface); padding: 1rem 1.5rem; display: flex; align-items: center; gap: .75rem; border-top: 1px solid var(--border);">
+          <div style="display: flex; gap: 5px;">
+            <span style="width:12px;height:12px;border-radius:50%;background:#e05555;display:block;"></span>
+            <span style="width:12px;height:12px;border-radius:50%;background:#c9a84c;display:block;"></span>
+            <span style="width:12px;height:12px;border-radius:50%;background:#4caf7d;display:block;"></span>
+          </div>
+          <span style="font-size:.8rem;color:var(--muted);flex:1;text-align:center;">goldentouchhair.com.au</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════
+       KEY NUMBERS
+  ══════════════════════════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+
+      <div style="text-align:center; margin-bottom: 2.5rem;">
+        <span class="label">The Numbers Don't Lie</span>
+        <h2 style="font-size: clamp(1.6rem, 4vw, 2.4rem);">What a Website Does for Local Businesses</h2>
+        <div class="divider center"></div>
+      </div>
+
+      <div class="stat-cards">
+        <div class="stat-card">
+          <span class="num">81%</span>
+          <span class="lbl">of people research a local business online before visiting</span>
+        </div>
+        <div class="stat-card">
+          <span class="num">46%</span>
+          <span class="lbl">of all Google searches are looking for local businesses</span>
+        </div>
+        <div class="stat-card">
+          <span class="num">75%</span>
+          <span class="lbl">of users judge a business's credibility by its website</span>
+        </div>
+        <div class="stat-card">
+          <span class="num">70%</span>
+          <span class="lbl">of small businesses with a website grow revenue year on year</span>
+        </div>
+        <div class="stat-card">
+          <span class="num">2.8×</span>
+          <span class="lbl">more likely to be found on Google with a proper website vs. directory only</span>
+        </div>
+        <div class="stat-card">
+          <span class="num">$0</span>
+          <span class="lbl">commission fees — unlike booking platforms that take a cut of revenue</span>
+        </div>
+      </div>
+
+      <div class="big-quote">
+        <p>
+          If your business isn't online with its own website, you're handing clients to
+          the competitor down the road who is.
+        </p>
+        <span class="source">— Universally agreed upon by every marketing consultant ever</span>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════
+       WHY FRESHA ISN'T ENOUGH
+  ══════════════════════════════════════════════════ -->
+  <section class="section section-alt">
+    <div class="container">
+
+      <span class="label">The Problem</span>
+      <h2 style="font-size: clamp(1.6rem, 4vw, 2.4rem);">Why Fresha Alone Is Holding You Back</h2>
+      <div class="divider"></div>
+      <p style="color: var(--muted); max-width: 620px; margin-bottom: 2.5rem;">
+        Fresha is a useful booking tool — but it's a platform <em style="color:var(--white);">they</em> own and control.
+        Here's what it can't do for Golden Touch:
+      </p>
+
+      <div class="problem-list">
+
+        <div class="problem-item">
+          <span class="problem-ico">🔍</span>
+          <div>
+            <h4>It won't help you rank on Google</h4>
+            <p>When someone types "barber Jordan Springs" into Google, your Fresha listing almost never appears on the first page. A proper website with your suburb name, services, and reviews gets you ranked where clients are actually searching.</p>
+          </div>
+        </div>
+
+        <div class="problem-item">
+          <span class="problem-ico">🏷️</span>
+          <div>
+            <h4>You're listed alongside your competitors</h4>
+            <p>On Fresha, clients browsing for a barber see Golden Touch right next to every other barbershop. A website means they come directly to you — no comparison shopping.</p>
+          </div>
+        </div>
+
+        <div class="problem-item">
+          <span class="problem-ico">🎨</span>
+          <div>
+            <h4>Zero brand control</h4>
+            <p>Fresha dictates the layout, the colours, the fonts. You can't show your personality, your story, or what makes Golden Touch different. A website is 100% yours — it looks exactly how you want.</p>
+          </div>
+        </div>
+
+        <div class="problem-item">
+          <span class="problem-ico">⭐</span>
+          <div>
+            <h4>Your great reviews are buried</h4>
+            <p>Golden Touch has fantastic reviews. On Fresha, they're hidden behind a few clicks. A website puts your best reviews front and centre — the first thing every visitor sees.</p>
+          </div>
+        </div>
+
+        <div class="problem-item">
+          <span class="problem-ico">📵</span>
+          <div>
+            <h4>No way to share your link professionally</h4>
+            <p>Sending someone your Fresha link looks amateur. A real website URL — goldentouchhair.com.au — looks professional on business cards, Instagram bio, Google Business, and word of mouth.</p>
+          </div>
+        </div>
+
+        <div class="problem-item">
+          <span class="problem-ico">💸</span>
+          <div>
+            <h4>Fresha can change its rules (or fees) at any time</h4>
+            <p>You don't own your Fresha page. If they introduce fees, change the algorithm, or go down — you lose your online presence overnight. A website is an asset you own forever.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════
+       COMPARISON TABLE
+  ══════════════════════════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+
+      <div style="text-align:center; margin-bottom: 2.5rem;">
+        <span class="label">Side by Side</span>
+        <h2 style="font-size: clamp(1.6rem, 4vw, 2.4rem);">Fresha Listing vs. Your Own Website</h2>
+        <div class="divider center"></div>
+      </div>
+
+      <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden;">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th style="text-align:center; color: var(--red);">Fresha Only</th>
+              <th style="text-align:center; color: var(--green);">Your Website</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Shows up on Google search</td>
+              <td style="text-align:center;"><span class="cross">✗</span></td>
+              <td style="text-align:center;"><span class="tick">✓</span></td>
+            </tr>
+            <tr>
+              <td>Full control over branding &amp; design</td>
+              <td style="text-align:center;"><span class="cross">✗</span></td>
+              <td style="text-align:center;"><span class="tick">✓</span></td>
+            </tr>
+            <tr>
+              <td>Clients come directly to you (no competitors shown)</td>
+              <td style="text-align:center;"><span class="cross">✗</span></td>
+              <td style="text-align:center;"><span class="tick">✓</span></td>
+            </tr>
+            <tr>
+              <td>Display your reviews &amp; story your way</td>
+              <td style="text-align:center;"><span class="cross">✗</span></td>
+              <td style="text-align:center;"><span class="tick">✓</span></td>
+            </tr>
+            <tr>
+              <td>Professional shareable link</td>
+              <td style="text-align:center;"><span class="cross">✗</span></td>
+              <td style="text-align:center;"><span class="tick">✓</span></td>
+            </tr>
+            <tr>
+              <td>Showcase full service menu with photos</td>
+              <td style="text-align:center;"><span class="part">Partial</span></td>
+              <td style="text-align:center;"><span class="tick">✓</span></td>
+            </tr>
+            <tr>
+              <td>Online booking</td>
+              <td style="text-align:center;"><span class="tick">✓</span></td>
+              <td style="text-align:center;"><span class="tick">✓ (can link to Fresha)</span></td>
+            </tr>
+            <tr>
+              <td>Works on mobile</td>
+              <td style="text-align:center;"><span class="tick">✓</span></td>
+              <td style="text-align:center;"><span class="tick">✓</span></td>
+            </tr>
+            <tr>
+              <td>You own it — no risk of platform changes</td>
+              <td style="text-align:center;"><span class="cross">✗</span></td>
+              <td style="text-align:center;"><span class="tick">✓</span></td>
+            </tr>
+            <tr>
+              <td>Commission or platform fees</td>
+              <td style="text-align:center;"><span style="color:var(--red);">Possible</span></td>
+              <td style="text-align:center;"><span style="color:var(--green);">None</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════
+       REVENUE CALCULATOR
+  ══════════════════════════════════════════════════ -->
+  <section class="section section-alt">
+    <div class="container">
+
+      <div style="text-align:center; margin-bottom: 2.5rem;">
+        <span class="label">The Real Opportunity</span>
+        <h2 style="font-size: clamp(1.6rem, 4vw, 2.4rem);">What Just 5 Extra Clients a Week Means</h2>
+        <div class="divider center"></div>
+        <p style="color: var(--muted); max-width: 580px; margin: 0 auto;">
+          A good website doesn't just look nice — it finds you new clients.
+          Here's what a conservative increase of 5 new clients per week
+          from Google search would mean for Golden Touch.
+        </p>
+      </div>
+
+      <div class="calc-box" style="max-width: 600px; margin: 0 auto;">
+        <div class="calc-header">
+          <h3>Revenue Impact Calculator</h3>
+          <p>Based on 5 additional clients/week at $40 average spend</p>
+        </div>
+        <div class="calc-body">
+          <div class="calc-row">
+            <span class="lbl">Extra clients per week</span>
+            <span class="val">5 clients</span>
+          </div>
+          <div class="calc-row">
+            <span class="lbl">Average spend per client</span>
+            <span class="val">$40</span>
+          </div>
+          <div class="calc-row">
+            <span class="lbl">Extra revenue per week</span>
+            <span class="val green">+$200 / week</span>
+          </div>
+          <div class="calc-row">
+            <span class="lbl">Extra revenue per month</span>
+            <span class="val green">+$866 / month</span>
+          </div>
+          <div class="calc-row">
+            <span class="lbl">Extra revenue per year</span>
+            <span class="val green">+$10,400 / year</span>
+          </div>
+          <div class="calc-row" style="background: rgba(201,168,76,.06); margin: 0 -2rem; padding: 1rem 2rem; border-radius: 8px;">
+            <span style="color: var(--white); font-weight: 700; font-size: .95rem;">Website one-off cost</span>
+            <span class="val gold">$1,000</span>
+          </div>
+          <div class="calc-row" style="padding-top: 1.25rem;">
+            <span style="color: var(--green); font-weight: 700;">Website pays for itself in</span>
+            <span class="val green">~5 weeks</span>
+          </div>
+        </div>
+      </div>
+
+      <p style="text-align:center; color: var(--muted); font-size: .8rem; margin-top: 1.5rem;">
+        * Conservative estimate. Many local businesses see 10–20+ new enquiries/week from Google once their website is live.
+      </p>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════
+       WHAT'S INCLUDED
+  ══════════════════════════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+
+      <div style="text-align:center; margin-bottom: 2.5rem;">
+        <span class="label">What You Get</span>
+        <h2 style="font-size: clamp(1.6rem, 4vw, 2.4rem);">Everything Built &amp; Ready to Go</h2>
+        <div class="divider center"></div>
+      </div>
+
+      <div class="benefit-list">
+        <div class="benefit-item">
+          <span class="benefit-ico">🏠</span>
+          <div>
+            <h4>4 fully designed pages</h4>
+            <p>Home, About, Services with pricing, and Contact with a booking form — everything a client needs to find you and book.</p>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <span class="benefit-ico">📱</span>
+          <div>
+            <h4>100% mobile-friendly</h4>
+            <p>Looks perfect on every phone, tablet, and desktop. Over 70% of local searches happen on mobile — this is non-negotiable.</p>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <span class="benefit-ico">📸</span>
+          <div>
+            <h4>Your real photos, professionally placed</h4>
+            <p>Your actual Golden Touch shop photos are already in the website — no stock images that look fake.</p>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <span class="benefit-ico">⭐</span>
+          <div>
+            <h4>5-star reviews showcased front and centre</h4>
+            <p>Your best Google reviews are displayed prominently — building instant trust with every new visitor.</p>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <span class="benefit-ico">📅</span>
+          <div>
+            <h4>Booking form + business hours</h4>
+            <p>Clients can request appointments 24/7. Your real hours (including Thursday late night) are displayed clearly.</p>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <span class="benefit-ico">🎨</span>
+          <div>
+            <h4>Premium gold &amp; black design — branded to Golden Touch</h4>
+            <p>Not a template. Not a DIY builder. A custom design that matches the premium quality of your barbershop.</p>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <span class="benefit-ico">🔗</span>
+          <div>
+            <h4>Links to your Fresha booking system</h4>
+            <p>The website doesn't replace Fresha — it sends clients to it. The best of both worlds: your own branded front door, with Fresha handling the scheduling.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════
+       PRICING
+  ══════════════════════════════════════════════════ -->
+  <section class="section section-alt">
+    <div class="container">
+
+      <div style="text-align:center; margin-bottom: 2.5rem;">
+        <span class="label">Investment</span>
+        <h2 style="font-size: clamp(1.6rem, 4vw, 2.4rem);">One Fair Price. No Surprises.</h2>
+        <div class="divider center"></div>
+      </div>
+
+      <div class="price-card">
+        <div class="price-card-head">
+          <h3>Golden Touch — Complete Website Package</h3>
+          <span class="price-card-price"><sup>$</sup>1,000<sub> AUD</sub></span>
+          <p>One-time investment · You own it outright · No ongoing fees</p>
+        </div>
+        <div class="price-card-body">
+          <ul class="price-includes">
+            <li><span>✓</span> 4-page fully responsive website (Home, About, Services, Contact)</li>
+            <li><span>✓</span> Your real shop photos built in</li>
+            <li><span>✓</span> 5-star reviews showcased</li>
+            <li><span>✓</span> Booking form linked to Fresha</li>
+            <li><span>✓</span> Real business hours, address &amp; Google Maps link</li>
+            <li><span>✓</span> Full pricing menu for all services</li>
+            <li><span>✓</span> Mobile-first design</li>
+            <li><span>✓</span> 2 rounds of edits included</li>
+            <li><span>✓</span> Delivered ready to go live</li>
+          </ul>
+          <a href="mailto:hello@example.com" class="btn btn-gold">I'm Interested — Let's Talk</a>
+          <a href="index.html" class="btn btn-outline" target="_blank">View the Live Website Preview →</a>
+        </div>
+      </div>
+
+      <p style="text-align:center; color: var(--muted); font-size: .8rem; margin-top: 1.5rem;">
+        Domain &amp; hosting (~$15–20/month) not included but can be arranged.<br>
+        Optional monthly maintenance available from $75/month.
+      </p>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════════ -->
+  <div class="pitch-footer">
+    <div class="container">
+      <p style="color: var(--gold); font-family: var(--ff-head); font-size: 1.1rem; margin-bottom: .5rem;">✂ Golden Touch Hair Style</p>
+      <p>This proposal was prepared exclusively for Golden Touch Hair Style, Jordan Springs NSW.</p>
+    </div>
+  </div>
+
+</body>
+</html>

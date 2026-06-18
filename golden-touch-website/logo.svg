@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" xml:space="preserve">
+  <defs>
+    <style>
+      .gold { fill: #c9a84c; }
+      .gold-lt { fill: #e8c96d; }
+      .dark { fill: #0d0d0d; }
+      .white { fill: #ffffff; }
+    </style>
+    <!-- Arc path for top text -->
+    <path id="topArc" d="M 200,200 m -130,0 a 130,130 0 1,1 260,0" fill="none"/>
+    <path id="botArc" d="M 200,200 m -108,0 a 108,108 0 0,0 216,0" fill="none"/>
+  </defs>
+
+  <!-- Outer ring - thick -->
+  <circle cx="200" cy="200" r="195" fill="#0d0d0d"/>
+  <circle cx="200" cy="200" r="190" fill="none" stroke="#c9a84c" stroke-width="4"/>
+  <circle cx="200" cy="200" r="182" fill="none" stroke="#c9a84c" stroke-width="1.5"/>
+
+  <!-- Inner badge fill -->
+  <circle cx="200" cy="200" r="178" fill="#0d0d0d"/>
+
+  <!-- Decorative corner diamonds on the outer ring -->
+  <polygon points="200,12 206,20 200,28 194,20" fill="#c9a84c"/>
+  <polygon points="200,372 206,380 200,388 194,380" fill="#c9a84c"/>
+  <polygon points="12,200 20,194 28,200 20,206" fill="#c9a84c"/>
+  <polygon points="372,200 380,194 388,200 380,206" fill="#c9a84c"/>
+
+  <!-- Scissors at the top (stylised X with circular handles) -->
+  <g transform="translate(200,52) scale(0.85)">
+    <!-- Left blade -->
+    <line x1="-22" y1="-12" x2="22" y2="18" stroke="#c9a84c" stroke-width="4" stroke-linecap="round"/>
+    <!-- Right blade -->
+    <line x1="22" y1="-12" x2="-22" y2="18" stroke="#c9a84c" stroke-width="4" stroke-linecap="round"/>
+    <!-- Left handle ring -->
+    <circle cx="-26" cy="-18" r="9" fill="none" stroke="#c9a84c" stroke-width="3"/>
+    <!-- Right handle ring -->
+    <circle cx="26" cy="-18" r="9" fill="none" stroke="#c9a84c" stroke-width="3"/>
+    <!-- Centre bolt -->
+    <circle cx="0" cy="4" r="4" fill="#c9a84c"/>
+  </g>
+
+  <!-- "BARBER SHOP" curved along top arc -->
+  <text font-family="Georgia, serif" font-size="20" font-weight="bold" letter-spacing="6" fill="#c9a84c">
+    <textPath href="#topArc" startOffset="22%">BARBER  SHOP</textPath>
+  </text>
+
+  <!-- Decorative horizontal rule lines left/right of text area -->
+  <line x1="58" y1="130" x2="100" y2="118" stroke="#c9a84c" stroke-width="1.5" opacity="0.7"/>
+  <line x1="342" y1="130" x2="300" y2="118" stroke="#c9a84c" stroke-width="1.5" opacity="0.7"/>
+
+  <!-- Gentleman bust — crown/quiff -->
+  <g transform="translate(200,195)">
+    <!-- Hair quiff -->
+    <path d="M -30,-85 Q -15,-105 0,-98 Q 15,-105 30,-85 Q 15,-75 0,-80 Q -15,-75 -30,-85 Z" fill="#c9a84c"/>
+    <!-- Side fade lines -->
+    <line x1="-38" y1="-70" x2="-42" y2="-50" stroke="#c9a84c" stroke-width="1" opacity="0.6"/>
+    <line x1="38" y1="-70" x2="42" y2="-50" stroke="#c9a84c" stroke-width="1" opacity="0.6"/>
+    <!-- Head/face oval -->
+    <ellipse cx="0" cy="-42" rx="36" ry="42" fill="#c9a84c"/>
+    <!-- Face highlight -->
+    <ellipse cx="0" cy="-42" rx="30" ry="36" fill="#e8c96d" opacity="0.15"/>
+    <!-- Eyes -->
+    <ellipse cx="-12" cy="-48" rx="5" ry="6" fill="#0d0d0d"/>
+    <ellipse cx="12" cy="-48" rx="5" ry="6" fill="#0d0d0d"/>
+    <!-- Eye whites -->
+    <ellipse cx="-12" cy="-49" rx="2.5" ry="3" fill="#ffffff" opacity="0.3"/>
+    <ellipse cx="12" cy="-49" rx="2.5" ry="3" fill="#ffffff" opacity="0.3"/>
+    <!-- Eyebrows -->
+    <path d="M -18,-57 Q -12,-60 -6,-57" stroke="#0d0d0d" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M 6,-57 Q 12,-60 18,-57" stroke="#0d0d0d" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <!-- Nose -->
+    <path d="M -4,-38 Q -5,-30 -8,-28 Q 0,-25 8,-28 Q 5,-30 4,-38" fill="#a07c30" opacity="0.8"/>
+    <!-- Moustache -->
+    <path d="M -18,-18 Q -10,-14 0,-16 Q 10,-14 18,-18 Q 10,-22 0,-20 Q -10,-22 -18,-18 Z" fill="#0d0d0d"/>
+    <!-- Full beard -->
+    <path d="M -36,0 Q -40,20 -35,38 Q -20,58 0,62 Q 20,58 35,38 Q 40,20 36,0 Q 20,-4 0,-5 Q -20,-4 -36,0 Z" fill="#0d0d0d"/>
+    <!-- Beard texture lines -->
+    <path d="M -20,5 Q -18,20 -12,35" stroke="#c9a84c" stroke-width="0.8" fill="none" opacity="0.4"/>
+    <path d="M 0,3 Q 0,20 0,38" stroke="#c9a84c" stroke-width="0.8" fill="none" opacity="0.4"/>
+    <path d="M 20,5 Q 18,20 12,35" stroke="#c9a84c" stroke-width="0.8" fill="none" opacity="0.4"/>
+    <!-- Beard inner shape (lighter) -->
+    <path d="M -22,5 Q -26,20 -22,36 Q -12,52 0,55 Q 12,52 22,36 Q 26,20 22,5 Q 12,2 0,2 Q -12,2 -22,5 Z" fill="#1a1a1a" opacity="0.6"/>
+    <!-- Collar / shirt top -->
+    <path d="M -42,62 L -30,50 L -10,58 L 0,55 L 10,58 L 30,50 L 42,62 L 50,80 L -50,80 Z" fill="#1a1a1a"/>
+    <path d="M -20,58 L 0,70 L 20,58" fill="none" stroke="#c9a84c" stroke-width="1.5" opacity="0.6"/>
+    <!-- Tie / shirt detail -->
+    <path d="M -6,62 L 0,75 L 6,62 L 4,55 L 0,57 L -4,55 Z" fill="#c9a84c" opacity="0.7"/>
+  </g>
+
+  <!-- Ornamental divider dots above banner -->
+  <circle cx="155" cy="290" r="3" fill="#c9a84c"/>
+  <circle cx="165" cy="290" r="2" fill="#c9a84c" opacity="0.6"/>
+  <circle cx="200" cy="290" r="3.5" fill="#c9a84c"/>
+  <circle cx="235" cy="290" r="2" fill="#c9a84c" opacity="0.6"/>
+  <circle cx="245" cy="290" r="3" fill="#c9a84c"/>
+
+  <!-- "GOLDEN TOUCH" banner at bottom -->
+  <!-- Banner scroll shape -->
+  <path d="M 58,308 L 72,300 L 328,300 L 342,308 L 328,318 L 72,318 Z" fill="#c9a84c"/>
+  <!-- Banner tail folds left -->
+  <path d="M 72,300 L 62,294 L 68,308 L 58,308 L 68,316 Z" fill="#a07c30"/>
+  <!-- Banner tail folds right -->
+  <path d="M 328,300 L 338,294 L 332,308 L 342,308 L 332,316 Z" fill="#a07c30"/>
+  <!-- Banner text -->
+  <text x="200" y="314" text-anchor="middle" font-family="Georgia, serif" font-size="18" font-weight="bold" letter-spacing="4" fill="#0d0d0d">GOLDEN TOUCH</text>
+
+  <!-- Small decorative stars / flourishes at bottom -->
+  <text x="90" y="348" text-anchor="middle" font-size="14" fill="#c9a84c" opacity="0.8">✦</text>
+  <text x="200" y="352" text-anchor="middle" font-size="18" fill="#c9a84c">✦</text>
+  <text x="310" y="348" text-anchor="middle" font-size="14" fill="#c9a84c" opacity="0.8">✦</text>
+
+  <!-- Thin line frame inside outer ring, bottom half decorative -->
+  <path d="M 82,330 Q 200,365 318,330" fill="none" stroke="#c9a84c" stroke-width="1" opacity="0.5"/>
+</svg>

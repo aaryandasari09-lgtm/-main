@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact &amp; Booking | Golden Touch Hair Style</title>
+  <meta name="description" content="Book an appointment or find your nearest Golden Touch Hair Style — Jordan Springs, Camden, St Marys, or Pitt Town. Open 7 days." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles-v2.css" />
+  <script src="https://cdn.jsdelivr.net/npm/motion@11/dist/motion.js" crossorigin="anonymous"></script>
+  <style>
+    @media (max-width: 900px) {
+      .contact-grid { grid-template-columns: 1fr !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav solid" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo-wrap">
+        <img src="logo.svg" alt="Golden Touch logo" class="nav-logo-img" />
+        <div>
+          <div class="nav-logo-text">Golden Touch</div>
+          <div class="nav-logo-sub">Hair Style · 4 Locations NSW</div>
+        </div>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+        <li><a href="contact.html" class="nav-book">Book Now</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- ── PAGE HERO ──────────────────────────────────────────── -->
+  <div class="page-hero-v2">
+    <div class="container">
+      <span class="label">Get In Touch</span>
+      <h1>Contact &amp; Booking</h1>
+      <p>Walk in any day of the week, or send us a booking request below. We'll confirm your appointment promptly.</p>
+    </div>
+  </div>
+
+
+  <!-- ── LOCATIONS GRID ─────────────────────────────────────── -->
+  <section class="section" style="padding-bottom:0;">
+    <div class="container" style="text-align:center;padding-bottom:3rem;">
+      <span class="label">Find Us</span>
+      <h2>Our 4 Locations</h2>
+      <div class="rule center"></div>
+      <p style="max-width:500px;margin:0 auto;color:var(--muted);">Walk in during trading hours or book below. All locations are open 7 days a week.</p>
+    </div>
+  </section>
+
+  <div class="loc-v2-grid">
+    <div class="loc-v2-card">
+      <div class="loc-v2-num">01</div>
+      <h4>Jordan Springs</h4>
+      <div class="loc-v2-detail"><span>📍</span><span>11/56 Lakeside Parade, Jordan Springs NSW 2747</span></div>
+      <div class="loc-v2-hours">
+        Mon–Fri: 9am–6pm<br>
+        Thursday: 9am–9pm<br>
+        Saturday: 8:30am–5:30pm<br>
+        Sunday: 9am–5pm
+      </div>
+      <a href="https://maps.google.com/?q=11/56+Lakeside+Parade+Jordan+Springs+NSW+2747" target="_blank" rel="noopener" class="btn btn-dark btn-sm">Get Directions</a>
+    </div>
+    <div class="loc-v2-card">
+      <div class="loc-v2-num">02</div>
+      <h4>Camden</h4>
+      <div class="loc-v2-detail"><span>📍</span><span>106 Argyle St, Camden NSW 2570</span></div>
+      <div class="loc-v2-hours">
+        Mon–Fri: 9am–6pm<br>
+        Thursday: 9am–9pm<br>
+        Saturday: 8:30am–5:30pm<br>
+        Sunday: 9am–5pm
+      </div>
+      <a href="https://maps.google.com/?q=106+Argyle+St+Camden+NSW+2570" target="_blank" rel="noopener" class="btn btn-dark btn-sm">Get Directions</a>
+    </div>
+    <div class="loc-v2-card">
+      <div class="loc-v2-num">03</div>
+      <h4>St Marys</h4>
+      <div class="loc-v2-detail"><span>📍</span><span>Village Shopping Centre, St Marys NSW 2760</span></div>
+      <div class="loc-v2-hours">
+        Mon–Fri: 9am–6pm<br>
+        Thursday: 9am–9pm<br>
+        Saturday: 8:30am–5:30pm<br>
+        Sunday: 9am–5pm
+      </div>
+      <a href="https://maps.google.com/?q=St+Marys+Village+Shopping+Centre+NSW+2760" target="_blank" rel="noopener" class="btn btn-dark btn-sm">Get Directions</a>
+    </div>
+    <div class="loc-v2-card">
+      <div class="loc-v2-num">04</div>
+      <h4>Pitt Town</h4>
+      <div class="loc-v2-detail"><span>📍</span><span>Hawkesbury Region, Pitt Town NSW 2756</span></div>
+      <div class="loc-v2-hours">
+        Mon–Fri: 9am–6pm<br>
+        Thursday: 9am–9pm<br>
+        Saturday: 8:30am–5:30pm<br>
+        Sunday: 9am–5pm
+      </div>
+      <a href="https://maps.google.com/?q=Pitt+Town+NSW+2756" target="_blank" rel="noopener" class="btn btn-dark btn-sm">Get Directions</a>
+    </div>
+  </div>
+
+
+  <!-- ── BOOKING FORM ────────────────────────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid" style="display:grid;grid-template-columns:1fr 1.25fr;gap:5rem;align-items:start;">
+
+        <!-- Info column -->
+        <div>
+          <span class="label">Make a Booking</span>
+          <h2>Book Your Appointment</h2>
+          <div class="rule"></div>
+          <p>Fill in the form and we'll confirm your appointment via phone or email. Walk-ins are always welcome, but booking ahead guarantees your preferred time and barber.</p>
+
+          <div style="margin-top:2rem;display:flex;flex-direction:column;gap:1.5rem;">
+            <div style="display:flex;gap:1rem;align-items:flex-start;">
+              <span style="font-size:1.3rem;flex-shrink:0;">⏱</span>
+              <div>
+                <strong style="display:block;font-size:.85rem;margin-bottom:.3rem;">Opening Hours (All Locations)</strong>
+                <span style="font-size:.82rem;color:var(--muted);line-height:1.7;">Mon–Fri: 9am–6pm<br>Thursday: 9am–9pm<br>Saturday: 8:30am–5:30pm<br>Sunday: 9am–5pm</span>
+              </div>
+            </div>
+            <div style="display:flex;gap:1rem;align-items:flex-start;">
+              <span style="font-size:1.3rem;flex-shrink:0;">✂️</span>
+              <div>
+                <strong style="display:block;font-size:.85rem;margin-bottom:.3rem;">Walk-ins Welcome</strong>
+                <span style="font-size:.82rem;color:var(--muted);">No appointment needed. Simply come in during trading hours at any of our 4 locations.</span>
+              </div>
+            </div>
+            <div style="display:flex;gap:1rem;align-items:flex-start;">
+              <span style="font-size:1.3rem;flex-shrink:0;">💬</span>
+              <div>
+                <strong style="display:block;font-size:.85rem;margin-bottom:.3rem;">Booking Confirmation</strong>
+                <span style="font-size:.82rem;color:var(--muted);">We typically confirm bookings within a few hours. If urgent, walk in — no wait required.</span>
+              </div>
+            </div>
+            <div style="display:flex;gap:1rem;align-items:flex-start;">
+              <span style="font-size:1.3rem;flex-shrink:0;">💈</span>
+              <div>
+                <strong style="display:block;font-size:.85rem;margin-bottom:.3rem;">All Services Available</strong>
+                <span style="font-size:.82rem;color:var(--muted);">Haircuts, fades, beard trims, hot towel shaves, and kids' cuts at all 4 locations.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form column -->
+        <div>
+          <form class="form-v2" name="golden-touch-booking-v2" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="golden-touch-booking-v2" />
+            <p style="display:none;">
+              <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+            </p>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label for="first-name">First Name *</label>
+                <input type="text" id="first-name" name="first-name" required placeholder="John" />
+              </div>
+              <div class="form-group">
+                <label for="last-name">Last Name *</label>
+                <input type="text" id="last-name" name="last-name" required placeholder="Smith" />
+              </div>
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label for="phone">Phone *</label>
+                <input type="tel" id="phone" name="phone" required placeholder="04XX XXX XXX" />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="john@email.com" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="location">Preferred Location *</label>
+              <select id="location" name="location" required>
+                <option value="">— Select a location —</option>
+                <option value="jordan-springs">Jordan Springs — 11/56 Lakeside Parade</option>
+                <option value="camden">Camden — 106 Argyle St</option>
+                <option value="st-marys">St Marys — Village Shopping Centre</option>
+                <option value="pitt-town">Pitt Town — Hawkesbury Region</option>
+              </select>
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label for="date">Preferred Date</label>
+                <input type="date" id="date" name="date" />
+              </div>
+              <div class="form-group">
+                <label for="time">Preferred Time</label>
+                <select id="time" name="time">
+                  <option value="">— Any time —</option>
+                  <option>Morning (9am–12pm)</option>
+                  <option>Midday (12pm–2pm)</option>
+                  <option>Afternoon (2pm–5pm)</option>
+                  <option>Evening (5pm–9pm, Thu only)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="service">Service Requested</label>
+              <select id="service" name="service">
+                <option value="">— Select a service —</option>
+                <option>Men's Haircut ($25)</option>
+                <option>Skin Fade ($35)</option>
+                <option>Scissor Cut ($35)</option>
+                <option>Beard Trim ($20)</option>
+                <option>Hot Towel Shave ($30)</option>
+                <option>Hair &amp; Beard Combo ($45)</option>
+                <option>Kids' Haircut ($20)</option>
+                <option>Senior Haircut ($25)</option>
+                <option>Eyebrow Trim ($10)</option>
+                <option>Wax Treatment ($10)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="notes">Additional Notes</label>
+              <textarea id="notes" name="notes" placeholder="Any specific requests, preferred barber, reference photo, or questions..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-dark" style="width:100%;justify-content:center;padding:1rem;">
+              Send Booking Request
+            </button>
+            <p style="font-size:.78rem;color:var(--muted);text-align:center;margin-top:1rem;margin-bottom:0;">We'll confirm your booking within a few hours.</p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── PULL QUOTE ─────────────────────────────────────────── -->
+  <div class="pull-quote">
+    <div class="container">
+      <blockquote>"Come in as a stranger, leave as a regular."</blockquote>
+      <cite>— Golden Touch Hair Style, Western Sydney</cite>
+    </div>
+  </div>
+
+
+  <!-- ── FOOTER ─────────────────────────────────────────────── -->
+  <footer class="footer-v2">
+    <div class="container">
+      <div class="footer-v2-grid">
+        <div>
+          <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:.5rem;">
+            <img src="logo.svg" alt="Golden Touch logo" style="width:40px;height:40px;" />
+            <div class="fv2-logo-name">Golden Touch</div>
+          </div>
+          <p class="fv2-desc">Premium men's barbershop across Western Sydney. Expert cuts, fades, and grooming — open every day.</p>
+          <div class="fv2-social" style="margin-top:1.5rem;">
+            <a href="#" aria-label="Facebook">f</a>
+            <a href="#" aria-label="Instagram">📸</a>
+            <a href="#" aria-label="TikTok">♪</a>
+          </div>
+        </div>
+        <div>
+          <div class="fv2-head">Explore</div>
+          <ul class="fv2-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact &amp; Booking</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="fv2-head">Services</div>
+          <ul class="fv2-links">
+            <li><a href="services.html">Men's Haircut</a></li>
+            <li><a href="services.html">Fade &amp; Skin Fade</a></li>
+            <li><a href="services.html">Beard Trim</a></li>
+            <li><a href="services.html">Hot Towel Shave</a></li>
+            <li><a href="services.html">Kids' Haircut</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="fv2-head">Contact</div>
+          <div class="fv2-contact-item">📍 Jordan Springs NSW 2747</div>
+          <div class="fv2-contact-item">📍 Camden NSW 2570</div>
+          <div class="fv2-contact-item">📍 St Marys NSW 2760</div>
+          <div class="fv2-contact-item">📍 Pitt Town NSW 2756</div>
+          <div class="fv2-contact-item" style="margin-top:.5rem;">🕐 Open 7 Days a Week</div>
+        </div>
+      </div>
+      <div class="footer-v2-bottom">
+        <span>&copy; 2025 Golden Touch Hair Style. All rights reserved.</span>
+        <div style="display:flex;gap:1.5rem;">
+          <a href="#" style="color:rgba(255,255,255,.4);">Privacy Policy</a>
+          <a href="#" style="color:rgba(255,255,255,.4);">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="chatbot.js"></script>
+  <script src="animations.js"></script>
+  <script>
+    const nav = document.getElementById('nav');
+    const toggle = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); });
+    toggle.addEventListener('click', () => { toggle.classList.toggle('open'); links.classList.toggle('open'); });
+    links.querySelectorAll('a').forEach(a => { a.addEventListener('click', () => { toggle.classList.remove('open'); links.classList.remove('open'); }); });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact Golden Touch Hair Style in Jordan Springs NSW. Book a haircut, find our location, check business hours, or send us a message." />
+  <title>Contact &amp; Booking | Golden Touch Hair Style — Jordan Springs NSW</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════════════════════════ -->
+  <nav class="navbar solid" id="navbar">
+    <div class="nav-wrap">
+      <a href="index.html" class="nav-logo">
+        <img src="logo.svg" alt="Golden Touch logo" style="width:44px;height:44px;border-radius:50%;flex-shrink:0;" />
+        <div>
+          <span class="nav-logo-main"><span class="logo-mark">✂</span> Golden Touch</span>
+          <span class="nav-logo-sub">Hair Style &nbsp;·&nbsp; 4 Locations NSW</span>
+        </div>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+        <li><a href="contact.html" class="nav-cta">Book Now</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       PAGE HERO
+  ═══════════════════════════════════════════════════════ -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>›</span>
+        <span>Contact</span>
+      </div>
+      <span class="section-label">Get In Touch</span>
+      <h1>Contact &amp; Booking</h1>
+      <div class="divider center"></div>
+      <p>Book your appointment, ask a question, or just come visit us at Lakeside Parade, Jordan Springs.</p>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       LOCATION TABS
+  ═══════════════════════════════════════════════════════ -->
+  <div style="background: var(--clr-bg); border-bottom: 1px solid var(--clr-border); padding: 1rem 0; position: sticky; top: var(--nav-h); z-index: 100;">
+    <div class="container">
+      <div style="display: flex; gap: .5rem; flex-wrap: wrap;">
+        <button class="loc-tab active" data-loc="jordan" onclick="switchLoc('jordan', this)">📍 Jordan Springs</button>
+        <button class="loc-tab" data-loc="camden" onclick="switchLoc('camden', this)">📍 Camden</button>
+        <button class="loc-tab" data-loc="stmarys" onclick="switchLoc('stmarys', this)">📍 St Marys</button>
+        <button class="loc-tab" data-loc="pitttown" onclick="switchLoc('pitttown', this)">📍 Pitt Town</button>
+      </div>
+    </div>
+  </div>
+  <style>
+    .loc-tab {
+      background: var(--clr-surface); border: 1px solid var(--clr-border);
+      border-radius: var(--r-pill); padding: .4rem 1.1rem;
+      font-size: .78rem; font-weight: 700; color: var(--clr-muted);
+      cursor: pointer; transition: var(--ease); font-family: var(--ff-body);
+      letter-spacing: .05em;
+    }
+    .loc-tab:hover  { border-color: var(--clr-gold); color: var(--clr-gold); }
+    .loc-tab.active { background: var(--clr-gold); border-color: var(--clr-gold); color: var(--clr-bg); }
+  </style>
+
+  <!-- Location info blocks (toggle with JS) -->
+  <div id="loc-jordan" class="loc-info-block" style="background: rgba(201,168,76,.04); border-bottom: 1px solid var(--clr-border); padding: .85rem 0;">
+    <div class="container" style="display:flex; gap: 2rem; flex-wrap: wrap; font-size:.85rem; color: var(--clr-muted);">
+      <span>📍 <strong style="color:var(--clr-white);">11/56 Lakeside Parade, Jordan Springs NSW 2747</strong></span>
+      <span>🕐 Mon–Fri 9am–6pm · <strong style="color:var(--clr-gold);">Thu till 9pm</strong> · Sat 8:30am–5:30pm · Sun 9am–5pm</span>
+    </div>
+  </div>
+  <div id="loc-camden" class="loc-info-block" style="display:none; background: rgba(201,168,76,.04); border-bottom: 1px solid var(--clr-border); padding: .85rem 0;">
+    <div class="container" style="display:flex; gap: 2rem; flex-wrap: wrap; font-size:.85rem; color: var(--clr-muted);">
+      <span>📍 <strong style="color:var(--clr-white);">106 Argyle St, Camden NSW 2570</strong></span>
+      <span>🕐 Mon–Fri 9am–6pm · Sat 8:30am–5pm · Sun Closed</span>
+    </div>
+  </div>
+  <div id="loc-stmarys" class="loc-info-block" style="display:none; background: rgba(201,168,76,.04); border-bottom: 1px solid var(--clr-border); padding: .85rem 0;">
+    <div class="container" style="display:flex; gap: 2rem; flex-wrap: wrap; font-size:.85rem; color: var(--clr-muted);">
+      <span>📍 <strong style="color:var(--clr-white);">St Marys Village Shopping Centre, St Marys NSW 2760</strong></span>
+      <span>🕐 Mon–Fri 9am–6pm · Sat 9am–5pm</span>
+    </div>
+  </div>
+  <div id="loc-pitttown" class="loc-info-block" style="display:none; background: rgba(201,168,76,.04); border-bottom: 1px solid var(--clr-border); padding: .85rem 0;">
+    <div class="container" style="display:flex; gap: 2rem; flex-wrap: wrap; font-size:.85rem; color: var(--clr-muted);">
+      <span>📍 <strong style="color:var(--clr-white);">Pitt Town, Hawkesbury NSW</strong></span>
+      <span>🕐 Mon–Fri 9am–6pm · Sat 9am–5pm</span>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       QUICK INFO STRIP
+  ═══════════════════════════════════════════════════════ -->
+  <div class="stats-bar">
+    <div class="container">
+      <div class="stats-row">
+
+        <div class="stat-item">
+          <span class="stat-num">📍</span>
+          <span class="stat-lbl" style="max-width: 200px; display: block;">11/56 Lakeside Parade,<br>Jordan Springs NSW 2747</span>
+        </div>
+
+        <div class="stat-sep"></div>
+
+        <div class="stat-item">
+          <span class="stat-num">🕐</span>
+          <span class="stat-lbl">Open 7 Days a Week</span>
+        </div>
+
+        <div class="stat-sep"></div>
+
+        <div class="stat-item">
+          <span class="stat-num">🚶</span>
+          <span class="stat-lbl">Walk-ins Welcome</span>
+        </div>
+
+        <div class="stat-sep"></div>
+
+        <div class="stat-item">
+          <span class="stat-num">⭐</span>
+          <span class="stat-lbl">5-Star Rated</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       CONTACT SECTION
+  ═══════════════════════════════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- ── LEFT: Info & Hours ── -->
+        <div>
+          <span class="section-label">Our Details</span>
+          <h2 class="section-title" style="font-size: 1.8rem;">Find Us &amp; Get In Touch</h2>
+          <div class="divider"></div>
+
+          <!-- Address -->
+          <div class="info-item">
+            <div class="info-ico">📍</div>
+            <div>
+              <div class="info-lbl">Our Location</div>
+              <div class="info-val">
+                11/56 Lakeside Parade<br>
+                Jordan Springs NSW 2747<br>
+                <a href="https://maps.google.com/?q=Golden+Touch+Hair+Style+Jordan+Springs" target="_blank" rel="noopener" style="color: var(--clr-gold); font-size: .85rem; margin-top: 4px; display: inline-block;">
+                  Get Directions →
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Phone -->
+          <div class="info-item">
+            <div class="info-ico">📞</div>
+            <div>
+              <div class="info-lbl">Phone</div>
+              <div class="info-val">
+                <a href="tel:+61XXXXXXXX" style="color: var(--clr-text);">Call us to book or enquire</a><br>
+                <span style="color: var(--clr-muted); font-size: .85rem;">Walk-ins always welcome</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="info-item">
+            <div class="info-ico">✉️</div>
+            <div>
+              <div class="info-lbl">Email</div>
+              <div class="info-val">
+                <a href="mailto:hello@goldentouchhair.com.au" style="color: var(--clr-text);">hello@goldentouchhair.com.au</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social -->
+          <div class="info-item">
+            <div class="info-ico">📱</div>
+            <div>
+              <div class="info-lbl">Follow Us</div>
+              <div class="info-val" style="display: flex; gap: .75rem; margin-top: .5rem;">
+                <a href="#" class="social-btn" aria-label="Facebook">f</a>
+                <a href="#" class="social-btn" aria-label="Instagram">📸</a>
+                <a href="#" class="social-btn" aria-label="TikTok">♪</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Business Hours -->
+          <div style="background: var(--clr-surface); border: 1px solid var(--clr-border); border-radius: var(--r-lg); padding: 1.75rem; margin-top: .5rem;">
+            <h4 style="color: var(--clr-gold); margin-bottom: 0; font-size: 1rem; letter-spacing: .08em; text-transform: uppercase;">
+              🕐 Business Hours
+            </h4>
+
+            <table class="hours-tbl">
+              <tbody>
+                <tr>
+                  <td>Monday</td>
+                  <td class="open">9:00 AM – 6:00 PM</td>
+                </tr>
+                <tr>
+                  <td>Tuesday</td>
+                  <td class="open">9:00 AM – 6:00 PM</td>
+                </tr>
+                <tr>
+                  <td>Wednesday</td>
+                  <td class="open">9:00 AM – 6:00 PM</td>
+                </tr>
+                <tr style="background: rgba(201,168,76,.08);">
+                  <td style="color: var(--clr-gold) !important; font-weight: 700;">Thursday ⭐ Late Night</td>
+                  <td class="open">9:00 AM – 9:00 PM</td>
+                </tr>
+                <tr>
+                  <td>Friday</td>
+                  <td class="open">9:00 AM – 6:00 PM</td>
+                </tr>
+                <tr>
+                  <td>Saturday</td>
+                  <td class="open">8:30 AM – 5:30 PM</td>
+                </tr>
+                <tr>
+                  <td>Sunday</td>
+                  <td class="open">9:00 AM – 5:00 PM</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p style="color: var(--clr-muted); font-size: .8rem; margin-top: 1rem; margin-bottom: 0; padding-top: 1rem; border-top: 1px solid var(--clr-border);">
+              ✅ Walk-ins welcome during all open hours.<br>
+              📅 Booking ahead recommended for Saturdays &amp; Thursday evenings.
+            </p>
+          </div>
+
+          <!-- Map Placeholder -->
+          <div class="map-box">
+            <span class="map-icon">🗺️</span>
+            <p><strong style="color: var(--clr-white);">11/56 Lakeside Parade</strong><br>Jordan Springs NSW 2747</p>
+            <a href="https://maps.google.com/?q=11/56+Lakeside+Parade+Jordan+Springs+NSW" target="_blank" rel="noopener" class="btn btn-outline" style="margin-top: 1rem; font-size: .75rem; padding: .4rem 1.2rem;">
+              Open in Google Maps →
+            </a>
+          </div>
+
+        </div>
+
+
+        <!-- ── RIGHT: Booking Form ── -->
+        <div>
+          <div class="contact-form">
+
+            <div style="margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--clr-border);">
+              <span class="section-label">Online Booking</span>
+              <h3 style="margin-bottom: .5rem;">Request an Appointment</h3>
+              <p style="color: var(--clr-muted); font-size: .9rem; margin: 0;">
+                Fill in your details below and we'll confirm your booking. For same-day
+                appointments, please call us directly.
+              </p>
+            </div>
+
+            <!-- netlify attribute makes Netlify capture all form submissions automatically -->
+            <form id="bookingForm" name="golden-touch-booking" method="POST" data-netlify="true" onsubmit="handleSubmit(event)" novalidate>
+              <input type="hidden" name="form-name" value="golden-touch-booking" />
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="firstName">First Name *</label>
+                  <input type="text" id="firstName" name="firstName" class="form-ctrl" placeholder="e.g. James" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="lastName">Last Name *</label>
+                  <input type="text" id="lastName" name="lastName" class="form-ctrl" placeholder="e.g. Thompson" required />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="phone">Phone Number *</label>
+                  <input type="tel" id="phone" name="phone" class="form-ctrl" placeholder="04XX XXX XXX" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="email">Email Address</label>
+                  <input type="email" id="email" name="email" class="form-ctrl" placeholder="you@email.com" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="location">Preferred Location *</label>
+                <select id="location" name="location" class="form-ctrl" required>
+                  <option value="" disabled selected>— Select a location —</option>
+                  <option value="jordan-springs">Jordan Springs — 11/56 Lakeside Parade</option>
+                  <option value="camden">Camden — 106 Argyle St</option>
+                  <option value="st-marys">St Marys — Village Shopping Centre</option>
+                  <option value="pitt-town">Pitt Town — Hawkesbury</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="service">Service Required *</label>
+                <select id="service" name="service" class="form-ctrl" required>
+                  <option value="" disabled selected>— Select a service —</option>
+                  <option value="mens-haircut">Men's Haircut (from $35)</option>
+                  <option value="fade">Fade / Skin Fade (from $40)</option>
+                  <option value="scissor-cut">Scissor Cut &amp; Style (from $40)</option>
+                  <option value="beard-trim">Beard Trim &amp; Shape (from $20)</option>
+                  <option value="hair-beard-combo">Hair &amp; Beard Combo (from $55)</option>
+                  <option value="hot-towel-shave">Hot Towel Shave (from $45)</option>
+                  <option value="head-shave">Head Shave (from $30)</option>
+                  <option value="kids-haircut">Kids' Haircut (from $25)</option>
+                  <option value="vip-package">VIP Package (from $90)</option>
+                  <option value="not-sure">Not sure — I'll discuss on the day</option>
+                </select>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="prefDate">Preferred Date *</label>
+                  <input type="date" id="prefDate" name="prefDate" class="form-ctrl" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="prefTime">Preferred Time *</label>
+                  <select id="prefTime" name="prefTime" class="form-ctrl" required>
+                    <option value="" disabled selected>— Select time —</option>
+                    <option value="9:00">9:00 AM</option>
+                    <option value="9:30">9:30 AM</option>
+                    <option value="10:00">10:00 AM</option>
+                    <option value="10:30">10:30 AM</option>
+                    <option value="11:00">11:00 AM</option>
+                    <option value="11:30">11:30 AM</option>
+                    <option value="12:00">12:00 PM</option>
+                    <option value="12:30">12:30 PM</option>
+                    <option value="13:00">1:00 PM</option>
+                    <option value="13:30">1:30 PM</option>
+                    <option value="14:00">2:00 PM</option>
+                    <option value="14:30">2:30 PM</option>
+                    <option value="15:00">3:00 PM</option>
+                    <option value="15:30">3:30 PM</option>
+                    <option value="16:00">4:00 PM</option>
+                    <option value="16:30">4:30 PM</option>
+                    <option value="17:00">5:00 PM</option>
+                    <option value="17:30">5:30 PM</option>
+                    <option value="18:00">6:00 PM (Mon–Fri only)</option>
+                    <option value="18:30">6:30 PM (Thu only)</option>
+                    <option value="19:00">7:00 PM (Thu only)</option>
+                    <option value="19:30">7:30 PM (Thu only)</option>
+                    <option value="20:00">8:00 PM (Thu only)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="barber">Preferred Barber</label>
+                <select id="barber" name="barber" class="form-ctrl">
+                  <option value="" selected>No preference — any available barber</option>
+                  <option value="head">Head Barber (Founder)</option>
+                  <option value="senior">Senior Barber (Scissor Specialist)</option>
+                  <option value="junior">Barber (Fade Specialist)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="message">Additional Notes or Requests</label>
+                <textarea id="message" name="message" class="form-ctrl" rows="3" placeholder="e.g. 'Looking for a mid fade with a fringe', 'First-time client', 'Bringing my son too'…"></textarea>
+              </div>
+
+              <!-- Consent -->
+              <div class="form-group" style="display: flex; align-items: flex-start; gap: .75rem; margin-bottom: 1.5rem;">
+                <input type="checkbox" id="consent" name="consent" required style="width: 18px; height: 18px; margin-top: 2px; accent-color: var(--clr-gold); flex-shrink: 0; cursor: pointer;" />
+                <label for="consent" style="font-size: .8rem; color: var(--clr-muted); cursor: pointer; line-height: 1.6;">
+                  I agree to be contacted by Golden Touch Hair Style to confirm my booking.
+                  I understand that walk-in availability is not guaranteed and booking ahead is recommended for weekends.
+                </label>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; font-size: .9rem; padding: 1rem;">
+                ✂️ Request My Appointment
+              </button>
+
+              <p style="text-align: center; color: var(--clr-muted); font-size: .78rem; margin-top: 1rem; margin-bottom: 0;">
+                We'll confirm your booking via phone or SMS within a few hours.<br>
+                For urgent bookings, please call us directly.
+              </p>
+
+            </form>
+
+            <!-- Success message (hidden) -->
+            <div id="successMsg" style="display: none; text-align: center; padding: 3rem 2rem;">
+              <span style="font-size: 3.5rem; display: block; margin-bottom: 1.5rem;">✅</span>
+              <h3 style="color: var(--clr-gold); margin-bottom: 1rem;">Booking Request Received!</h3>
+              <p style="color: var(--clr-text);">
+                Thanks — we'll be in touch shortly to confirm your appointment.<br>
+                See you at Golden Touch!
+              </p>
+              <a href="index.html" class="btn btn-outline" style="margin-top: 1.5rem;">Back to Home</a>
+            </div>
+
+          </div>
+
+          <!-- Trust badges under form -->
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.5rem;">
+            <div style="background: var(--clr-surface); border: 1px solid var(--clr-border); border-radius: var(--r-md); padding: 1rem; text-align: center;">
+              <span style="font-size: 1.5rem; display: block; margin-bottom: .35rem;">🔒</span>
+              <span style="font-size: .72rem; color: var(--clr-muted); display: block; letter-spacing: .06em;">Secure &amp; Private</span>
+            </div>
+            <div style="background: var(--clr-surface); border: 1px solid var(--clr-border); border-radius: var(--r-md); padding: 1rem; text-align: center;">
+              <span style="font-size: 1.5rem; display: block; margin-bottom: .35rem;">⚡</span>
+              <span style="font-size: .72rem; color: var(--clr-muted); display: block; letter-spacing: .06em;">Fast Response</span>
+            </div>
+            <div style="background: var(--clr-surface); border: 1px solid var(--clr-border); border-radius: var(--r-md); padding: 1rem; text-align: center;">
+              <span style="font-size: 1.5rem; display: block; margin-bottom: .35rem;">★</span>
+              <span style="font-size: .72rem; color: var(--clr-muted); display: block; letter-spacing: .06em;">5-Star Service</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       FAQ STRIP
+  ═══════════════════════════════════════════════════════ -->
+  <section class="section section-alt">
+    <div class="container">
+
+      <div class="section-header center">
+        <span class="section-label">FAQs</span>
+        <h2 class="section-title">Common Questions</h2>
+        <div class="divider center"></div>
+      </div>
+
+      <div style="max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem;">
+
+        <details style="background: var(--clr-surface); border: 1px solid var(--clr-border); border-radius: var(--r-lg); padding: 1.5rem; cursor: pointer;">
+          <summary style="font-weight: 700; color: var(--clr-white); font-size: .95rem; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+            Do I need to book in advance?
+            <span style="color: var(--clr-gold); font-size: 1.3rem; flex-shrink: 0;">+</span>
+          </summary>
+          <p style="color: var(--clr-muted); font-size: .9rem; margin-top: 1rem; margin-bottom: 0;">
+            Walk-ins are always welcome and we do our best to fit you in. However, we recommend
+            booking ahead for Saturdays and Thursday late nights, as these are our busiest times.
+            Online booking is available 24/7 through this page.
+          </p>
+        </details>
+
+        <details style="background: var(--clr-surface); border: 1px solid var(--clr-border); border-radius: var(--r-lg); padding: 1.5rem; cursor: pointer;">
+          <summary style="font-weight: 700; color: var(--clr-white); font-size: .95rem; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+            How long does a typical appointment take?
+            <span style="color: var(--clr-gold); font-size: 1.3rem; flex-shrink: 0;">+</span>
+          </summary>
+          <p style="color: var(--clr-muted); font-size: .9rem; margin-top: 1rem; margin-bottom: 0;">
+            A standard men's haircut takes 30–45 minutes. A fade takes 40–55 minutes.
+            Beard trims are 20–30 minutes. Our VIP package runs 80–100 minutes.
+            Exact times can vary based on hair length and complexity.
+          </p>
+        </details>
+
+        <details style="background: var(--clr-surface); border: 1px solid var(--clr-border); border-radius: var(--r-lg); padding: 1.5rem; cursor: pointer;">
+          <summary style="font-weight: 700; color: var(--clr-white); font-size: .95rem; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+            Do you cut kids' hair?
+            <span style="color: var(--clr-gold); font-size: 1.3rem; flex-shrink: 0;">+</span>
+          </summary>
+          <p style="color: var(--clr-muted); font-size: .9rem; margin-top: 1rem; margin-bottom: 0;">
+            Absolutely! Kids' haircuts start from $25 and our barbers are experienced at
+            making young clients feel relaxed and comfortable. We welcome boys of all ages,
+            including first-timers.
+          </p>
+        </details>
+
+        <details style="background: var(--clr-surface); border: 1px solid var(--clr-border); border-radius: var(--r-lg); padding: 1.5rem; cursor: pointer;">
+          <summary style="font-weight: 700; color: var(--clr-white); font-size: .95rem; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+            What payment methods do you accept?
+            <span style="color: var(--clr-gold); font-size: 1.3rem; flex-shrink: 0;">+</span>
+          </summary>
+          <p style="color: var(--clr-muted); font-size: .9rem; margin-top: 1rem; margin-bottom: 0;">
+            We accept cash, card (EFTPOS / tap), and most digital payment options.
+            There are no surcharges for card payments.
+          </p>
+        </details>
+
+        <details style="background: var(--clr-surface); border: 1px solid var(--clr-border); border-radius: var(--r-lg); padding: 1.5rem; cursor: pointer;">
+          <summary style="font-weight: 700; color: var(--clr-white); font-size: .95rem; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+            Is parking available?
+            <span style="color: var(--clr-gold); font-size: 1.3rem; flex-shrink: 0;">+</span>
+          </summary>
+          <p style="color: var(--clr-muted); font-size: .9rem; margin-top: 1rem; margin-bottom: 0;">
+            Yes — there is ample free parking directly outside our shop at Lakeside Parade,
+            Jordan Springs. We're easy to find and accessible for everyone.
+          </p>
+        </details>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       CTA BANNER
+  ═══════════════════════════════════════════════════════ -->
+  <div class="cta-banner">
+    <div class="container">
+      <h2>We Can't Wait to See You.</h2>
+      <p>Book online above, call us, or just walk in — we're here every day of the week.</p>
+      <div class="cta-banner-btns">
+        <a href="#bookingForm" class="btn btn-dark btn-lg">Book Now — It's Quick!</a>
+        <a href="services.html" class="btn btn-outline btn-lg" style="border-color: rgba(13,13,13,.4); color: var(--clr-bg);">View All Services</a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="nav-logo" style="margin-bottom: .5rem; display: inline-flex;">
+            <span class="nav-logo-main" style="font-size: 1.35rem;"><span class="logo-mark">✂</span> Golden Touch</span>
+            <span class="nav-logo-sub">Hair Style &nbsp;·&nbsp; Jordan Springs NSW</span>
+          </a>
+          <p class="footer-desc">
+            Premium men's barbershop at the heart of Jordan Springs. Precision cuts,
+            expert beard work, and the kind of service that keeps clients coming back.
+          </p>
+          <div class="social-row">
+            <a href="#" class="social-btn" aria-label="Facebook">f</a>
+            <a href="#" class="social-btn" aria-label="Instagram">📸</a>
+            <a href="#" class="social-btn" aria-label="TikTok">♪</a>
+          </div>
+        </div>
+        <div>
+          <h5 class="footer-head">Quick Links</h5>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact &amp; Booking</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="footer-head">Services</h5>
+          <ul class="footer-links">
+            <li><a href="services.html">Men's Haircut</a></li>
+            <li><a href="services.html">Fade &amp; Skin Fade</a></li>
+            <li><a href="services.html">Beard Trim</a></li>
+            <li><a href="services.html">Hot Towel Shave</a></li>
+            <li><a href="services.html">Kids' Haircut</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="footer-head">Contact</h5>
+          <div class="f-contact-item">
+            <span class="ico">📍</span>
+            <span>11/56 Lakeside Parade,<br>Jordan Springs NSW 2747</span>
+          </div>
+          <div class="f-contact-item">
+            <span class="ico">🕐</span>
+            <span>Mon–Fri: 9am–6pm<br>Thu: Until 9pm<br>Sat: 8:30am–5:30pm<br>Sun: 9am–5pm</span>
+          </div>
+          <div class="f-contact-item">
+            <span class="ico">✉️</span>
+            <a href="mailto:hello@goldentouchhair.com.au" style="color: var(--clr-muted);">hello@goldentouchhair.com.au</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Golden Touch Hair Style. All rights reserved. Jordan Springs, NSW.</p>
+        <div class="footer-btm-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="chatbot.js"></script>
+  <!-- ── Scripts ── -->
+  <script>
+    /* Nav toggle */
+    const toggle = document.getElementById('navToggle');
+    const links  = document.getElementById('navLinks');
+
+    toggle.addEventListener('click', () => {
+      toggle.classList.toggle('open');
+      links.classList.toggle('open');
+    });
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      toggle.classList.remove('open');
+      links.classList.remove('open');
+    }));
+
+    /* Location tab switcher */
+    function switchLoc(loc, btn) {
+      document.querySelectorAll('.loc-tab').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.loc-info-block').forEach(b => b.style.display = 'none');
+      document.getElementById('loc-' + loc).style.display = 'block';
+      /* Pre-select in the form */
+      const map = { jordan: 'jordan-springs', camden: 'camden', stmarys: 'st-marys', pitttown: 'pitt-town' };
+      const sel = document.getElementById('location');
+      if (sel && map[loc]) sel.value = map[loc];
+    }
+
+    /* Set min date to today */
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('prefDate').setAttribute('min', today);
+
+    /* Form submission — replace with real backend / Fresha integration */
+    function handleSubmit(e) {
+      e.preventDefault();
+      const form = document.getElementById('bookingForm');
+      const msg  = document.getElementById('successMsg');
+
+      /* Basic validation */
+      const req = form.querySelectorAll('[required]');
+      let valid = true;
+      req.forEach(f => {
+        if (!f.value.trim() || (f.type === 'checkbox' && !f.checked)) {
+          f.style.borderColor = '#e55';
+          valid = false;
+        } else {
+          f.style.borderColor = '';
+        }
+      });
+
+      if (!valid) {
+        form.querySelector('[required]').focus();
+        return;
+      }
+
+      /* Show success */
+      form.style.display = 'none';
+      msg.style.display  = 'block';
+    }
+
+    /* Details expand/collapse animation for FAQ */
+    document.querySelectorAll('details').forEach(det => {
+      det.addEventListener('toggle', () => {
+        const arrow = det.querySelector('summary span:last-child');
+        if (arrow) arrow.textContent = det.open ? '−' : '+';
+      });
+    });
+  </script>
+
+</body>
+</html>
