@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles-v2.css" />
+  <script src="https://cdn.jsdelivr.net/npm/motion@11/dist/motion.js" crossorigin="anonymous"></script>
   <style>
     @media (max-width: 900px) {
       .contact-grid { grid-template-columns: 1fr !important; }
@@ -219,14 +220,14 @@
               <label for="service">Service Requested</label>
               <select id="service" name="service">
                 <option value="">— Select a service —</option>
-                <option>Men's Haircut ($35)</option>
-                <option>Skin Fade ($40)</option>
-                <option>Scissor Cut ($40)</option>
-                <option>Beard Trim ($25)</option>
-                <option>Hot Towel Shave ($35)</option>
-                <option>Hair &amp; Beard Combo ($55)</option>
-                <option>Kids' Haircut ($25)</option>
-                <option>Senior Haircut ($30)</option>
+                <option>Men's Haircut ($25)</option>
+                <option>Skin Fade ($35)</option>
+                <option>Scissor Cut ($35)</option>
+                <option>Beard Trim ($20)</option>
+                <option>Hot Towel Shave ($30)</option>
+                <option>Hair &amp; Beard Combo ($45)</option>
+                <option>Kids' Haircut ($20)</option>
+                <option>Senior Haircut ($25)</option>
                 <option>Eyebrow Trim ($10)</option>
                 <option>Wax Treatment ($10)</option>
               </select>
@@ -313,6 +314,7 @@
   </footer>
 
   <script src="chatbot.js"></script>
+  <script src="animations.js"></script>
   <script>
     const nav = document.getElementById('nav');
     const toggle = document.getElementById('navToggle');

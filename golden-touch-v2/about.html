@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles-v2.css" />
+  <script src="https://cdn.jsdelivr.net/npm/motion@11/dist/motion.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -111,7 +112,7 @@
       </div>
 
       <!-- Mission statement card -->
-      <div style="background:var(--dark);border-radius:2px;padding:3rem;text-align:center;max-width:700px;margin:0 auto 4rem;position:relative;overflow:hidden;">
+      <div class="mission-card" style="background:var(--dark);border-radius:2px;padding:3rem;text-align:center;max-width:700px;margin:0 auto 4rem;position:relative;overflow:hidden;">
         <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent-dk),var(--accent-lt));"></div>
         <span style="font-size:2.5rem;display:block;margin-bottom:1rem;">💈</span>
         <h3 style="color:var(--accent);margin-bottom:1rem;">Our Mission</h3>
@@ -119,7 +120,7 @@
       </div>
 
       <!-- Values grid -->
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);">
+      <div data-grid-cards style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);">
         <div style="background:var(--surface);padding:2rem;">
           <div style="font-size:2rem;margin-bottom:.75rem;">✂️</div>
           <h4 style="margin-bottom:.5rem;">Craft &amp; Precision</h4>
@@ -174,7 +175,7 @@
         <p style="max-width:540px;margin:0 auto;color:var(--muted);">Skilled, passionate, and genuinely invested in making you look great. Our barbers are the heart of Golden Touch.</p>
       </div>
 
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);">
+      <div data-grid-cards style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);">
         <div style="background:var(--surface);padding:2.5rem 2rem;text-align:center;">
           <div style="font-size:3rem;margin-bottom:1rem;">💇</div>
           <h3 style="margin-bottom:.25rem;">Head Barber</h3>
@@ -257,6 +258,7 @@
   </footer>
 
   <script src="chatbot.js"></script>
+  <script src="animations.js"></script>
   <script>
     const nav = document.getElementById('nav');
     const toggle = document.getElementById('navToggle');

@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles-v2.css" />
+  <script src="https://cdn.jsdelivr.net/npm/motion@11/dist/motion.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -42,7 +43,7 @@
       <div class="hero-eyebrow">Western Sydney's Finest</div>
       <h1>The Art of the<br><em>Perfect Cut</em></h1>
       <p>Expert fades, beard work, and hot towel shaves. Walk-ins welcome every day of the week across 4 locations.</p>
-      <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+      <div class="hero-btns" style="display:flex;gap:1rem;flex-wrap:wrap;">
         <a href="contact.html" class="btn btn-gold">Book Appointment</a>
         <a href="services.html" class="btn btn-ghost">View Services</a>
       </div>
@@ -96,15 +97,15 @@
           <p style="color:var(--muted);">From sharp skin fades to relaxed scissor cuts — from kids to seniors — every client leaves with a cut they're proud of. That's our promise.</p>
           <div style="display:flex;gap:3rem;margin-top:2rem;flex-wrap:wrap;">
             <div>
-              <div style="font-family:var(--ff-head);font-size:2.2rem;font-weight:900;color:var(--accent);line-height:1;">4</div>
+              <div class="stat-num">4</div>
               <div style="font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-top:.25rem;">Locations</div>
             </div>
             <div>
-              <div style="font-family:var(--ff-head);font-size:2.2rem;font-weight:900;color:var(--accent);line-height:1;">7</div>
+              <div class="stat-num">7</div>
               <div style="font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-top:.25rem;">Days a Week</div>
             </div>
             <div>
-              <div style="font-family:var(--ff-head);font-size:2.2rem;font-weight:900;color:var(--accent);line-height:1;">★ 4.5</div>
+              <div class="stat-num">★ 4.5</div>
               <div style="font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-top:.25rem;">Star Rating</div>
             </div>
           </div>
@@ -135,7 +136,7 @@
   <!-- ── SERVICE STRIPS ────────────────────────────────────── -->
   <section class="section-dark">
 
-    <div style="padding:4rem 0 2rem;text-align:center;">
+    <div class="svc-section-header" style="padding:4rem 0 2rem;text-align:center;">
       <span class="label">What We Do</span>
       <h2 style="color:#fff;">Crafted for Every Man</h2>
       <div class="rule center"></div>
@@ -303,12 +304,12 @@
 
 
   <!-- ── CTA BAND ───────────────────────────────────────────── -->
-  <section style="background:var(--dark);padding:5rem 0;text-align:center;">
+  <section class="cta-band" style="background:var(--dark);padding:5rem 0;text-align:center;">
     <div class="container">
       <span class="label">Ready?</span>
       <h2 style="color:#fff;margin-bottom:1rem;">Walk In or Book Ahead</h2>
       <p style="color:rgba(255,255,255,.5);max-width:500px;margin:0 auto 2rem;">Open 7 days a week across 4 locations. No fuss, no wait — just a great cut every time.</p>
-      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+      <div class="cta-btns" style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
         <a href="contact.html" class="btn btn-gold">Book Your Appointment</a>
         <a href="services.html" class="btn btn-ghost">Explore Services</a>
       </div>
@@ -371,6 +372,7 @@
   </footer>
 
   <script src="chatbot.js"></script>
+  <script src="animations.js"></script>
   <script>
     const nav = document.getElementById('nav');
     const toggle = document.getElementById('navToggle');

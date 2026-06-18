@@ -496,6 +496,98 @@ p:last-child { margin-bottom: 0; }
 .delay-2 { animation-delay: .2s; }
 .delay-3 { animation-delay: .3s; }
 
+/* ── Pro Max: Button lift ─────────────────────────────────── */
+.btn {
+  box-shadow: 0 2px 0 rgba(0,0,0,.08);
+  will-change: transform;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0,0,0,.14);
+}
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 0 rgba(0,0,0,.08);
+}
+
+/* ── Pro Max: Review card accent ─────────────────────────── */
+.review-v2 {
+  border-left: 3px solid transparent;
+}
+.review-v2:hover {
+  border-left-color: var(--accent);
+}
+
+/* ── Pro Max: Location card accent ──────────────────────── */
+.loc-v2-card {
+  border-top: 3px solid transparent;
+}
+.loc-v2-card:hover {
+  border-top-color: var(--accent);
+}
+
+/* ── Pro Max: Photo grid overlay ─────────────────────────── */
+.photo-grid-4 > div { position: relative; }
+.photo-grid-4 > div::after {
+  content: ''; position: absolute; inset: 0;
+  background: rgba(201,168,76,.15);
+  opacity: 0;
+  transition: opacity .4s;
+  pointer-events: none;
+}
+.photo-grid-4 > div:hover::after { opacity: 1; }
+
+/* ── Pro Max: Nav logo hover ─────────────────────────────── */
+.nav-logo-img { transition: transform .35s ease; }
+.nav-logo-wrap:hover .nav-logo-img {
+  transform: rotate(-5deg) scale(1.06);
+}
+
+/* ── Pro Max: About image hover ──────────────────────────── */
+.about-img img { transition: transform .85s cubic-bezier(.25,.46,.45,.94); }
+.about-img:hover img { transform: scale(1.04); }
+.about-img {
+  box-shadow: 0 8px 32px rgba(0,0,0,.08);
+  transition: box-shadow .4s;
+}
+.about-img:hover { box-shadow: 0 16px 48px rgba(0,0,0,.14); }
+
+/* ── Pro Max: Service strip stronger zoom ────────────────── */
+.strip-img img {
+  transition: transform .9s cubic-bezier(.25,.46,.45,.94);
+}
+.strip-img:hover img { transform: scale(1.06); }
+
+/* ── Pro Max: Accessibility focus ring ───────────────────── */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ── Pro Max: Stat numbers ───────────────────────────────── */
+.stat-num {
+  font-family: var(--ff-head);
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1;
+}
+
+/* ── Pro Max: Mission card glow ──────────────────────────── */
+.mission-card {
+  transition: box-shadow .4s;
+}
+.mission-card:hover {
+  box-shadow: 0 0 0 1px rgba(201,168,76,.3), 0 16px 48px rgba(0,0,0,.25);
+}
+
+/* ── Pro Max: Smooth rule animation ─────────────────────── */
+.rule {
+  transform-origin: left center;
+}
+.rule.center { transform-origin: center center; }
+
 /* ── Responsive ──────────────────────────────────────────── */
 @media (max-width: 1024px) {
   .hero-v2        { grid-template-columns: 1fr; min-height: auto; }
